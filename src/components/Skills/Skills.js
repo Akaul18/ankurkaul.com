@@ -1,11 +1,16 @@
 import React from 'react'
+import './Skills.scss'
 import Header from '../Header'
 
 function Skills() {
     return (
         <div>
             <Header />
-            <h1>Skills Component</h1>
+            <main className="skills__main">
+                <div>
+                    <h1>Skills Component</h1>
+                </div>
+            </main>
         </div>
     )
 }

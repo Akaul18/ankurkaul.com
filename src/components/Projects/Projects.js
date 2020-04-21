@@ -1,11 +1,16 @@
 import React from 'react'
+import './Projects.scss'
 import Header from '../Header'
 
 function Project() {
     return (
         <div>
             <Header />
-            <h1>Project Component</h1>
+            <main className="projects__main">
+                <div>
+                    <h1>Projects Component</h1>
+                </div>
+            </main>
         </div>
     )
 }

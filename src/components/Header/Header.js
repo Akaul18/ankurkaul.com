@@ -1,11 +1,16 @@
 import React from 'react'
+import './Header.scss'
+import { DrawerButton } from '../SideDrawer';
 import { Link } from 'react-router-dom'
 
 const Header = () => (
-    <header>
-        <nav>
-            <div>Burger Icon</div>
-            <div className="header__logo"><Link to="/">Logo</Link></div>
+    <header className="header">
+        <nav className="header__navigation">
+            <div className="header__menu-icon">
+                <DrawerButton />
+            </div>
+            <div className="header__logo"><Link to="/"><strong>My Logo</strong></Link></div>
+            <div className="spacer"></div>
             <div className="header__nav-items">
                 <ul>
                     <li><Link to="/">Home</Link></li>
