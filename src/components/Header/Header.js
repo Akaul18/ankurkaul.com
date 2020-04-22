@@ -3,11 +3,11 @@ import './Header.scss'
 import { DrawerButton } from '../SideDrawer';
 import { Link } from 'react-router-dom'
 
-const Header = () => (
+const Header = ({ drawerToggleHandler }) => (
     <header className="header">
         <nav className="header__navigation">
             <div className="header__menu-icon">
-                <DrawerButton />
+                <DrawerButton drawerToggleHandler={drawerToggleHandler} />
             </div>
             <div className="header__logo"><Link to="/"><strong>My Logo</strong></Link></div>
             <div className="spacer"></div>

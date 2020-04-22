@@ -1,11 +1,11 @@
 import React from 'react'
 import './About.scss'
-import Header from '../Header'
+// import Header from '../Header'
 
 function About() {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <main className="about__main">
                 <div>
                     <h1>About Component</h1>

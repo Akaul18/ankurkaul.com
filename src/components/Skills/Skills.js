@@ -1,11 +1,11 @@
 import React from 'react'
 import './Skills.scss'
-import Header from '../Header'
+// import Header from '../Header'
 
 function Skills() {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <main className="skills__main">
                 <div>
                     <h1>Skills Component</h1>
