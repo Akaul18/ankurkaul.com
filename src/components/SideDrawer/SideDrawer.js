@@ -10,6 +10,11 @@ const SideDrawer = props => {
     }
     return (
         <nav className={drawerClasses}>
+            <div className="cross-button" onClick={props.closeDrawer}>
+                <div className="cross-button__line"></div>
+                <div className="cross-button__line"></div>
+                <div className="cross-button__line"></div>
+            </div>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About Me</Link></li>

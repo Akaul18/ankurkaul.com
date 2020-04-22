@@ -14,17 +14,25 @@ import Backdrop from './components/Backdrop';
 function App() {
 
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [crossPressed, setCrossPressed] = useState(false)
 
   const drawerToggleHandler = () => {
+    setDrawerOpen(prev => !prev)
+    setCrossPressed(true)
+  }
+
+  const crossButtonHandler = () => {
+    setCrossPressed(true)
     setDrawerOpen(prev => !prev)
   }
 
   const backdropClickHandler = () => {
     setDrawerOpen(false)
+    setCrossPressed(true)
   }
 
   let backdrop
-  if (drawerOpen) {
+  if (drawerOpen && crossPressed) {
     backdrop = <Backdrop click={backdropClickHandler} />
   }
 
@@ -33,7 +41,7 @@ function App() {
     <BrowserRouter>
       <div style={{ height: "100%" }}>
         <Header drawerToggleHandler={drawerToggleHandler} />
-        <SideDrawer showDrawer={drawerOpen} />
+        <SideDrawer showDrawer={drawerOpen} closeDrawer={crossButtonHandler} />
         {backdrop}
         <Switch>
           <Route path="/" exact component={Home} />
