@@ -1,3 +1,95 @@
 .home__main{
-    margin:5em 1em 0;
+    // width:100%;
+    height:auto;
+    margin:5.8rem 1rem 0;
+
+    .self-intro__container{
+        width:100%;
+        height:650px;
+        background:#fdfdfd;
+        // box-shadow:1px 0 5px rgb(0,0,0);
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        align-items:center;
+        .self-intro{
+            @media screen and (min-width:720px){
+                padding:12rem 0 0;
+                display:grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 0.7fr 0.5fr 1fr;
+            }
+            &:first-child{
+                @media screen and (min-width:720px){
+                    grid-row: 1/2;
+                    grid-column: 1/2;
+                    align-self: center;
+                }
+                
+            }
+            h1{
+                text-align:center;
+                margin-bottom:0;
+                @media screen and (min-width:720px){
+                    font-size:3em;
+                }
+            }
+            h3{
+                margin-top:0;
+                margin-bottom:0;
+                span{
+                    // color:rgb(82, 27, 81)
+                    color:#f50057;
+                }
+                @media screen and (min-width:720px){
+                    font-size:1.4em;
+                }
+            }
+            .self-intro__image{
+                width:50%;
+                margin:auto;
+                perspective:50px;
+                img{
+                    max-width:100%;
+                    height:auto;
+                    border-radius:50%;
+                    @media screen and (min-width:720px){
+                        border-radius: 5px;
+                    }
+                }
+                @media screen and (min-width: 720px){
+                    grid-column:2/3;
+                    grid-row:1/3;
+                    width:50%;    
+                    align-self: center;   
+                }
+            }
+            p{
+                font-size: 1.05em;
+                margin-top:0;
+                padding:1rem;
+                @media screen and (min-width: 720px){
+                    grid-row: 2/4;
+                    grid-column: 1/2;
+                    padding:0 5rem;       
+                }
+            }
+            &:last-child{
+                @media screen and (min-width:720px){
+                    grid-column:2/3;
+                    grid-row:3/4;
+                }
+                
+            }
+        }
+
+        @media screen and (min-width:550px) and (min-height:500px){
+            height:650px;
+        }
+        
+        @media screen and (min-width:400px) and (min-height:650px) and (max-height: 720px){
+            height:650px;
+        }
+
+    }
 }

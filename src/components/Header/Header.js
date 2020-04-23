@@ -13,15 +13,14 @@ const Header = ({ drawerToggleHandler }) => (
             <div className="spacer"></div>
             <div className="header__nav-items">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About Me</Link></li>
-                    <li><Link to="/projects">Projects</Link></li>
-                    <li><Link to="/skills">Skills</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/"><strong>Home</strong></Link></li>
+                    <li><Link to="/skills"><strong>Skills</strong></Link></li>
+                    <li><Link to="/projects"><strong>Projects</strong></Link></li>
+                    <li><Link to="/contact"><strong>Contact</strong></Link></li>
                 </ul>
             </div>
         </nav>
-    </header>
+    </header >
 )
 
 export default Header

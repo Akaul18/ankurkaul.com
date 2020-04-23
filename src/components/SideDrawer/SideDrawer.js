@@ -16,12 +16,12 @@ const SideDrawer = ({ showDrawer, closeDrawer }) => {
                 <div className="cross-button__line"></div>
                 <div className="cross-button__line"></div>
             </div>
+            {/* <hr width="80%" /> */}
             <ul>
-                <li onClick={closeDrawer}><Link to="/">Home</Link></li>
-                <li onClick={closeDrawer}><Link to="/about">About Me</Link></li>
-                <li onClick={closeDrawer}><Link to="/projects">Projects</Link></li>
-                <li onClick={closeDrawer}><Link to="/skills">Skills</Link></li>
-                <li onClick={closeDrawer}><Link to="/contact">Contact</Link></li>
+                <li onClick={closeDrawer}><Link to="/"><strong>Home</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/skills"><strong>Skills</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/projects"><strong>Projects</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/contact"><strong>Contact</strong></Link></li>
             </ul>
         </nav>
     );
