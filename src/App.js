@@ -13,8 +13,8 @@ import Backdrop from './components/Backdrop';
 // export const DrawerButtonContext = React.createContext()
 function App() {
 
-  const [drawerOpen, setDrawerOpen] = useState(false)
-  const [crossPressed, setCrossPressed] = useState(false)
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [crossPressed, setCrossPressed] = useState(false);
 
   const drawerToggleHandler = () => {
     setDrawerOpen(prev => !prev)
@@ -37,7 +37,6 @@ function App() {
   }
 
   return (
-    // <DrawerButtonContext.Provider value={drawerToggleHandler}>
     <BrowserRouter>
       <div style={{ height: "100%" }}>
         <Header drawerToggleHandler={drawerToggleHandler} />
@@ -45,14 +44,12 @@ function App() {
         {backdrop}
         <Switch>
           <Route path="/" exact component={Home} />
-          {/* <Route path="/about" component={About} /> */}
           <Route path="/skills" component={Skills} />
           <Route path="/projects" component={Projects} />
           <Route path="/contact" component={Contact} />
         </Switch>
       </div>
     </BrowserRouter>
-    // </DrawerButtonContext.Provider>
   );
 }
 

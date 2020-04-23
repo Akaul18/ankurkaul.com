@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import './Home.scss'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
@@ -10,12 +10,6 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 function Home() {
-
-    const h1Ref = useRef(null)
-    useEffect(() => {
-        h1Ref.current.style.translateX = "0";
-    }, [])
-
     const classes = useStyles();
     return (
         <div>
@@ -24,7 +18,7 @@ function Home() {
                 <div className="self-intro__container">
                     <div className="self-intro">
                         <div>
-                            <h1 ref={h1Ref}>Hey, I am Ankur Kaul</h1>
+                            <h1>Hey, I am Ankur Kaul</h1>
                             <h3>A Full stack developer <span><em>by choice </em> </span></h3>
                         </div>
                         <div className="self-intro__image">
@@ -34,11 +28,11 @@ function Home() {
                         <p>I strongly <em>believe</em> that we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
                         <div>
                             <Button className={classes.margin} variant="outlined" size="medium" color="primary">
-                                Need a website?
+                                <strong>Need a website?</strong>
                             </Button>
 
                             <Button className={classes.margin} variant="outlined" size="medium" color="secondary">
-                                Want to hire me?
+                                <strong>Want to hire me?</strong>
                             </Button>
                         </div>
                     </div>
