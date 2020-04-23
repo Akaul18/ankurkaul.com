@@ -20,6 +20,7 @@ function Home() {
     return (
         <div>
             <main class="home__main">
+                <div class="home__main-clipart"></div>
                 <div className="self-intro__container">
                     <div className="self-intro">
                         <div>
@@ -27,6 +28,7 @@ function Home() {
                             <h3>A Full stack developer <span><em>by choice </em> </span></h3>
                         </div>
                         <div className="self-intro__image">
+                            {/* <div class="self-intro__image-clipart"></div> */}
                             <img src={banner} alt="banner" />
                         </div>
                         <p>I strongly <em>believe</em> that we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
@@ -42,7 +44,7 @@ function Home() {
                     </div>
                 </div>
             </main>
-        </div >
+        </div>
     )
 }
 
