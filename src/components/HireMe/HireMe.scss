@@ -1,0 +1,20 @@
+.type-of-work-label{
+    margin: 2rem 0 0.5rem;
+    width: 40%;
+}
+
+.type-of-work{
+    margin: 0;
+    // margin: 0 0 1rem 0;
+    width: 40%;
+    @media screen and (min-width:720px){
+        width:50%;
+    }
+}
+
+.email{
+    margin: 1rem 0;
+    .email__input{
+        width:50%;
+    }
+}

@@ -1,20 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.scss'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import banner from '../../assets/images/banner-img.jpg'
+import HireMe from '../HireMe'
 
 const useStyles = makeStyles(theme => ({
     margin: {
         margin: theme.spacing(1),
     }
 }))
-function Home() {
+const Home = () => {
+
+    const [openDialog, setOpenDialog] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpenDialog(true);
+    };
+
+    const handleClose = () => {
+        setOpenDialog(false);
+    };
+
     const classes = useStyles();
     return (
         <div>
-            <main class="home__main">
-                <div class="home__main-clipart"></div>
+            <HireMe open={openDialog} handleClose={handleClose} />
+            <main className="home__main">
+                <div className="home__main-clipart"></div>
                 <div className="self-intro__container">
                     <div className="self-intro">
                         <div>
@@ -31,7 +44,7 @@ function Home() {
                                 <strong>Need a website?</strong>
                             </Button>
 
-                            <Button className={classes.margin} variant="outlined" size="medium" color="secondary">
+                            <Button onClick={handleClickOpen} className={classes.margin} variant="outlined" size="medium" color="secondary">
                                 <strong>Want to hire me?</strong>
                             </Button>
                         </div>

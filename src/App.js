@@ -12,7 +12,6 @@ import Backdrop from './components/Backdrop';
 
 // export const DrawerButtonContext = React.createContext()
 function App() {
-
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [crossPressed, setCrossPressed] = useState(false);
 
