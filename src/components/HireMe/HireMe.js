@@ -12,23 +12,29 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const HireMe = ({ open, handleClose }) => {
-    const [value, setValue] = useState('');
+    const [workType, setWorkType] = useState('');
+    const [position, setPosition] = useState('');
     const [email, setEmail] = useState('');
     const [description, setdescription] = useState('');
 
-    const handleChange = e => {
-        setValue(e.target.value)
+    const handleTypeWorkChange = e => {
+        setWorkType(e.target.value)
     };
 
-    const handleDescriptionChange = e => {
-        setdescription(e.target.value)
+    const handleTypePositionChange = e => {
+        setPosition(e.target.value)
     }
 
     const handleEmailChange = e => {
         setEmail(e.target.value)
     }
+
+    const handleDescriptionChange = e => {
+        setdescription(e.target.value)
+    }
+
     let sendButton = '';
-    if (value === '' || description === '' || email === '') {
+    if (workType === '' || description === '' || email === '' || position === '') {
         sendButton = <Button variant="outlined" disabled>
             <strong>Send inquiry</strong>
         </Button>
@@ -44,24 +50,45 @@ const HireMe = ({ open, handleClose }) => {
             <DialogContent>
                 <DialogContentText>
                     Please provide a brief description of your work opportunity and I'll get back to you as soon as I can.
-                    </DialogContentText>
-                <InputLabel
-                    className="type-of-work-label"
-                    id="demo-simple-select-outlined-label">
-                    Type of work<span style={{ color: 'red' }}>*</span>
-                </InputLabel>
-                <Select
-                    className="type-of-work"
-                    labelId="demo-simple-select-outlined-label"
-                    id="demo-simple-select-outlined"
-                    value={value}
-                    onChange={handleChange}
-                    label="Type of work"
-                >
-                    <MenuItem value="full">Full time</MenuItem>
-                    <MenuItem value="hourly">Hourly rate</MenuItem>
-                    <MenuItem value="fixed">Fixed rate</MenuItem>
-                </Select>
+                </DialogContentText>
+                <div className="work-position">
+                    <div>
+                        <InputLabel
+                            className="type-of-work-label"
+                            id="demo-simple-select-outlined-label">
+                            Type of work<span style={{ color: 'red' }}>*</span>
+                        </InputLabel>
+                        <Select
+                            className="type-of-work"
+                            labelId="demo-simple-select-outlined-label"
+                            id="demo-simple-select-outlined"
+                            value={workType}
+                            onChange={handleTypeWorkChange}
+                            label="Type of work"
+
+                        >
+                            <MenuItem value="full">Full time</MenuItem>
+                            <MenuItem value="hourly">Hourly rate</MenuItem>
+                            <MenuItem value="fixed">Fixed rate</MenuItem>
+                        </Select>
+                    </div>
+                    <div>
+                        <InputLabel className="type-of-position-label">
+                            Position to hire<span style={{ color: 'red' }}>*</span>
+                        </InputLabel>
+                        <Select
+                            className="type-of-position"
+                            value={position}
+                            onChange={handleTypePositionChange}
+                            label="Type of work"
+
+                        >
+                            <MenuItem value="frontend">Frontend developer</MenuItem>
+                            <MenuItem value="backend">Backend developer</MenuItem>
+                            <MenuItem value="fullstack">Full stack</MenuItem>
+                        </Select>
+                    </div>
+                </div>
                 <div className="email">
                     <TextField
                         className="email__input"
@@ -71,6 +98,7 @@ const HireMe = ({ open, handleClose }) => {
                         label="Email Address"
                         type="email"
                         onChange={handleEmailChange}
+                        fullWidth
                     />
                 </div>
                 <TextField
