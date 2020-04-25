@@ -67,13 +67,9 @@
             text-align:center;
         }
         div{
-            // background-color: red;
             width:100%;
             height:auto;
             text-align:center;
-            // @media screen and (min-wdith:720px){
-            //     width:80%;
-            // }
             .contact-details__fields{
                 box-shadow: initial;
                 width:45%;
@@ -85,6 +81,17 @@
                         // width:81.3%;
                         width:91.8%;
                     }
+                }
+            }
+        }
+        & div:nth-of-type(2){
+            text-align: right;
+            .send-message{
+                width:35%;
+                margin:1rem 0.8rem 0;
+                @media screen and (min-width:720px){
+                    width:15%;
+                    margin:1rem 2.6rem 0;
                 }
             }
         }

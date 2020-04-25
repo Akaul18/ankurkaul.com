@@ -4,8 +4,17 @@ import { AiOutlineMail } from 'react-icons/ai'
 import { RiLinkedinBoxLine } from 'react-icons/ri'
 import { GoMarkGithub } from 'react-icons/go'
 import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+    margin: {
+        margin: theme.spacing(1),
+    }
+}))
 
 const Contact = props => {
+    const classes = useStyles()
     let email = 'ankurkaul1894@gmail.com'
     let linkedin = 'https://linkedin.com/in/ankurkaul1894'
     let github = 'https://github.com/Akaul18'
@@ -33,9 +42,14 @@ const Contact = props => {
                         <TextField className="contact-details__fields" id="standard-basic" label="Contact Number" />
                         <TextField className="contact-details__fields" multiline rows={2} id="standard-basic" label="Message" />
                     </div>
+                    <div>
+                        <Button className={`send-message ${classes.margin}`} variant="outlined" color="primary">
+                            Send
+                        </Button>
+                    </div>
                 </div>
             </main>
-        </div>
+        </div >
     )
 }
 
