@@ -1,33 +1,37 @@
 .contact__main{
     margin:5em 1em 0;
     display:grid;
-    grid-template-rows: 1fr 0.5fr;
+    grid-template-rows: 1fr 0.7fr;
     .my-contact-card{
-        margin-top:2rem;
-        width:100%;
+        grid-row:2/3;
+        // margin-top:2rem;
+        margin:3rem auto 0;
+        // width:100%;
+        width:95%;
         box-shadow:0 7px 11px rgba(0,0,0,.3);
         display:grid;
-        grid-template-columns: 0.3fr 0.7fr;
+        grid-template-columns: 0.2fr 0.8fr;
         
         .clipart{
             background:#3f51b5;
-            // background:#f50057;
-            clip-path: polygon(41% 0, 8% 43%, 0 29%, 41% 100%, 0 100%, 0 33%, 0 0);
+            // clip-path: polygon(41% 0, 8% 43%, 0 29%, 41% 100%, 0 100%, 0 33%, 0 0);
+            clip-path: polygon(51% 0, 14% 43%, 6% 29%, 51% 100%, 0 100%, 0 33%, 0 0);
             // clip-path: polygon(0 0, 72% 0, 72% 100%, 0 100%);
+            @media screena and (min-width:720px){
+                clip-path: polygon(41% 0, 8% 43%, 0 29%, 41% 100%, 0 100%, 0 33%, 0 0);
+            }
         }
 
         h2{
             margin:0;
-            // margin:0 0 0 25%;
-            // text-align:center;
             letter-spacing: 1.2px;
             span{
                 font-weight: lighter;
             }
         }
         h3{
-            margin:0;
-            // margin:-0.5rem 0 0.5rem 25%;
+            // margin:0;
+            margin:-0.5rem 0 0 0;
             letter-spacing:1.1px;
 
             span{
@@ -36,20 +40,57 @@
         }
     
         ul{
-            margin:1rem 0 0;
+            margin:1.5rem 0 0;
             padding:0;
             list-style-type: none;
             li{
-                // margin-left:25%;
-                & span:nth-of-type(1){
-                    // font-size:0.8em;
+                a{
+                    text-decoration:none;
+                    // color:initial;
+                    color:#3f51b5;
                 }
-                // & span:nth-of-type(2){
-                    
-                // }
             }
         }
-    
-    
+        @media screen and (min-width:468px){
+            width:468px;
+            height:197px;
+        }
+
+        @media screen and (min-width:720px){
+            margin:3rem auto 0;
+            grid-template-columns: 0.3fr 0.7fr;
+        }
+    }
+    .contact-details{
+        h1{
+            margin:2rem 0 0;
+            text-align:center;
+        }
+        div{
+            // background-color: red;
+            width:100%;
+            height:auto;
+            text-align:center;
+            // @media screen and (min-wdith:720px){
+            //     width:80%;
+            // }
+            .contact-details__fields{
+                box-shadow: initial;
+                width:45%;
+                margin:0.5rem;
+                &:last-child{
+                    // width:85%;
+                    width:94%;
+                    @media screen and (min-width:720px){
+                        // width:81.3%;
+                        width:91.8%;
+                    }
+                }
+            }
+        }
+        @media screen and (min-width:720px){
+            width:70%;
+            margin:auto;
+        }
     }
 }

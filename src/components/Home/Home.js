@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import banner from '../../assets/images/banner-img.jpg'
 import HireMe from '../HireMe'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -41,7 +42,7 @@ const Home = () => {
                         <p>I strongly <em>believe</em> that we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
                         <div>
                             <Button className={classes.margin} variant="outlined" size="medium" color="primary">
-                                <strong>Need a website?</strong>
+                                <strong><Link to="/contact">Need a website?</Link></strong>
                             </Button>
 
                             <Button onClick={handleClickOpen} className={classes.margin} variant="outlined" size="medium" color="secondary">
@@ -54,11 +55,5 @@ const Home = () => {
         </div>
     )
 }
-
-// const styles = {
-//     bannerLogo: {
-//         maxWidth: '100%',
-//     }
-// }
 
 export default Home
