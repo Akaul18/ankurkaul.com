@@ -4,14 +4,11 @@
     grid-template-rows: 1fr 0.7fr;
     .my-contact-card{
         grid-row:2/3;
-        // margin-top:2rem;
         margin:3rem auto 0;
-        // width:100%;
         width:95%;
         box-shadow:0 7px 11px rgba(0,0,0,.3);
         display:grid;
         grid-template-columns: 0.2fr 0.8fr;
-        
         .clipart{
             background:#3f51b5;
             // clip-path: polygon(41% 0, 8% 43%, 0 29%, 41% 100%, 0 100%, 0 33%, 0 0);

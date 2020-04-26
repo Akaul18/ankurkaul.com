@@ -9,6 +9,7 @@ import Skills from './components/Skills'
 import Contact from './components/Contact'
 import { SideDrawer } from './components/SideDrawer';
 import Backdrop from './components/Backdrop';
+import Blog from './components/Blog';
 
 // export const DrawerButtonContext = React.createContext()
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/skills" component={Skills} />
           <Route path="/projects" component={Projects} />
+          <Route path="/blog" component={Blog} />
           <Route path="/contact" component={Contact} />
         </Switch>
       </div>

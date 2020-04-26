@@ -1,9 +1,14 @@
 import React from 'react'
+import './Blog.scss'
 
 function Blog() {
     return (
         <div>
-            <h1>Blog Component</h1>
+            <main className="blog__main">
+                <div>
+                    <h1>Blog Component</h1>
+                </div>
+            </main>
         </div>
     )
 }
