@@ -13,6 +13,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 const Contact = props => {
+
     const [state, setState] = useState({
         name: '',
         company: '',
@@ -55,7 +56,7 @@ const Contact = props => {
                     <h1>Get in touch with me</h1>
                     <form>
                         <div>
-                            <TextField className="contact-details__fields" id="standard-basic" label="Name" onChange={handleChange('name')} />
+                            <TextField inputProps={{ autoFocus: true }} className="contact-details__fields" id="standard-basic" label="Name" onChange={handleChange('name')} />
                             <TextField className="contact-details__fields" id="standard-basic" label="Company" onChange={handleChange('company')} />
                             <TextField className="contact-details__fields" id="standard-basic" label="Email" onChange={handleChange('email')} />
                             <TextField className="contact-details__fields" id="standard-basic" label="Contact Number" onChange={handleChange('contactNumber')} />
@@ -63,8 +64,8 @@ const Contact = props => {
                         </div>
                         <div>
                             <Button onClick={submitForm} className={`send-message ${classes.margin}`} variant="outlined" color="primary">
-                                Send
-                        </Button>
+                                <strong>Send</strong>
+                            </Button>
                         </div>
                     </form>
                 </div>

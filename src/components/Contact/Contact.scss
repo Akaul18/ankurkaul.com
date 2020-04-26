@@ -9,6 +9,7 @@
         box-shadow:0 7px 11px rgba(0,0,0,.3);
         display:grid;
         grid-template-columns: 0.2fr 0.8fr;
+        transition:0.3s ease-in-out;
         .clipart{
             background:#3f51b5;
             // clip-path: polygon(41% 0, 8% 43%, 0 29%, 41% 100%, 0 100%, 0 33%, 0 0);
@@ -56,6 +57,9 @@
         @media screen and (min-width:720px){
             margin:3rem auto 0;
             grid-template-columns: 0.3fr 0.7fr;
+        }
+        &:hover{
+            transform:scale(1.2);
         }
     }
     .contact-details{

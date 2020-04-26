@@ -54,11 +54,24 @@
         list-style-type: none;
         display:flex;
         li{
-            padding:0 0.5rem;
+            padding:0 0.6rem;
+            transform: translateY(0);
+            // transform: scale(1);
+            transition:0.3s ease-in-out;
+            &:hover{
+                // transform: scale(1.2);
+                transform: translateY(-7%);
+                // border-bottom: 2px solid #f50057;;
+            }
             a{
                 color:#fff;
                 text-decoration:none;
                 font-size:1.1em;
+                transition:0.3s ease-in-out;
+                &:hover{
+                    color:#f50057;
+                    
+                }
             }
         }
     }
