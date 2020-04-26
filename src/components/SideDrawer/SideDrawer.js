@@ -18,10 +18,11 @@ const SideDrawer = ({ showDrawer, closeDrawer }) => {
             </div>
             {/* <hr width="80%" /> */}
             <ul>
-                <li onClick={closeDrawer}><Link to="/"><strong>Home</strong></Link></li>
-                <li onClick={closeDrawer}><Link to="/skills"><strong>Skills</strong></Link></li>
-                <li onClick={closeDrawer}><Link to="/projects"><strong>Projects</strong></Link></li>
-                <li onClick={closeDrawer}><Link to="/contact"><strong>Contact</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/"><strong>HOME</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/skills"><strong>SKILLS</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/projects"><strong>PROJECTS</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/blog"><strong>BLOG</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/contact"><strong>CONTACT</strong></Link></li>
             </ul>
         </nav>
     );

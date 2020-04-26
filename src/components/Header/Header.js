@@ -13,10 +13,11 @@ const Header = ({ drawerToggleHandler }) => (
             <div className="spacer"></div>
             <div className="header__nav-items">
                 <ul>
-                    <li><Link to="/"><strong>Home</strong></Link></li>
-                    <li><Link to="/skills"><strong>Skills</strong></Link></li>
-                    <li><Link to="/projects"><strong>Projects</strong></Link></li>
-                    <li><Link to="/contact"><strong>Contact</strong></Link></li>
+                    <li><Link to="/"><strong>HOME</strong></Link></li>
+                    <li><Link to="/skills"><strong>SKILLS</strong></Link></li>
+                    <li><Link to="/projects"><strong>PROJECTS</strong></Link></li>
+                    <li><Link to="/blog"><strong>BLOG</strong></Link></li>
+                    <li><Link to="/contact"><strong>CONTACT</strong></Link></li>
                 </ul>
             </div>
         </nav>
