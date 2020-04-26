@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Contact.scss'
 import { AiOutlineMail } from 'react-icons/ai'
 import { RiLinkedinBoxLine } from 'react-icons/ri'
@@ -13,6 +13,11 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 const Contact = props => {
+
+    useEffect(() => {
+        const contactDetails = document.getElementById('contact-details');
+        contactDetails.style.transform = 'scale(1)'
+    }, [])
 
     const [state, setState] = useState({
         name: '',
@@ -52,7 +57,7 @@ const Contact = props => {
                         </ul>
                     </div>
                 </div>
-                <div className="contact-details">
+                <div id="contact-details" className="contact-details">
                     <h1>Get in touch with me</h1>
                     <form>
                         <div>

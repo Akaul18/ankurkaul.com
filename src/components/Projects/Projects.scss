@@ -1,3 +1,27 @@
 .projects__main{
     margin:5em 1em 0;
+
+    div{
+        .project-languages__heading{
+            // background:green;
+            width:100%;
+            // margin:auto;
+            ul{
+                margin:0;
+                padding:0;
+                width:100%;
+                list-style-type: none;
+                display:flex;
+                justify-content: center;
+                li{
+                    margin:2rem;
+                    font-size:1.2em;
+                    cursor:pointer;
+                }
+            }
+        }
+    }
+    .background{
+        background:#f50057;   
+    }
 }

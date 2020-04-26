@@ -18,13 +18,12 @@ const Home = () => {
         const h1Ref = document.getElementById('h1Ref')
         const h3Ref = document.getElementById('h3Ref')
         const pRef = document.getElementById('pRef')
-        const btn1 = document.getElementById('btn1')
-        const btn2 = document.getElementById('btn2')
+        const imgRef = document.getElementById('imgRef')
+
         h1Ref.style.transform = 'translateX(0)';
         h3Ref.style.transform = 'translateY(0)';
         pRef.style.transform = 'translateY(0)';
-        btn1.style.transform = 'translateY(0)';
-        btn2.style.transform = 'translateY(0)';
+        imgRef.style.transform = 'scale(1)';
     }, [])
 
     const [openDialog, setOpenDialog] = useState(false);
@@ -41,7 +40,7 @@ const Home = () => {
     return (
         <div>
             <HireMe open={openDialog} handleClose={handleClose} />
-            <main className="home__main">
+            <main id="home__main" className="home__main">
                 <div className="home__main-clipart"></div>
                 <div className="self-intro__container">
                     <div className="self-intro">
@@ -51,7 +50,7 @@ const Home = () => {
                         </div>
                         <div className="self-intro__image">
                             {/* <div class="self-intro__image-clipart"></div> */}
-                            <img src={banner} alt="banner" />
+                            <img id="imgRef" src={banner} alt="banner" />
                         </div>
                         <p id="pRef">I strongly <em>believe</em> that we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
                         <div>
