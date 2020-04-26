@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Contact.scss'
 import { AiOutlineMail } from 'react-icons/ai'
 import { RiLinkedinBoxLine } from 'react-icons/ri'
@@ -12,8 +12,26 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1),
     }
 }))
-
 const Contact = props => {
+    const [state, setState] = useState({
+        name: '',
+        company: '',
+        email: '',
+        contactNumber: '',
+        message: '',
+    })
+
+    const handleChange = input => e => {
+        setState({
+            ...state,
+            [input]: e.target.value
+        })
+    }
+
+    const submitForm = e => {
+        //api call to node
+    }
+
     const classes = useStyles()
     let email = 'ankurkaul1894@gmail.com'
     let linkedin = 'https://linkedin.com/in/ankurkaul1894'
@@ -35,18 +53,20 @@ const Contact = props => {
                 </div>
                 <div className="contact-details">
                     <h1>Get in touch with me</h1>
-                    <div>
-                        <TextField className="contact-details__fields" id="standard-basic" label="Name" />
-                        <TextField className="contact-details__fields" id="standard-basic" label="Company" />
-                        <TextField className="contact-details__fields" id="standard-basic" label="Email" />
-                        <TextField className="contact-details__fields" id="standard-basic" label="Contact Number" />
-                        <TextField className="contact-details__fields" multiline rows={2} id="standard-basic" label="Message" />
-                    </div>
-                    <div>
-                        <Button className={`send-message ${classes.margin}`} variant="outlined" color="primary">
-                            Send
+                    <form>
+                        <div>
+                            <TextField className="contact-details__fields" id="standard-basic" label="Name" onChange={handleChange('name')} />
+                            <TextField className="contact-details__fields" id="standard-basic" label="Company" onChange={handleChange('company')} />
+                            <TextField className="contact-details__fields" id="standard-basic" label="Email" onChange={handleChange('email')} />
+                            <TextField className="contact-details__fields" id="standard-basic" label="Contact Number" onChange={handleChange('contactNumber')} />
+                            <TextField className="contact-details__fields" multiline rows={2} id="standard-basic" label="Message" onChange={handleChange('message')} />
+                        </div>
+                        <div>
+                            <Button onClick={submitForm} className={`send-message ${classes.margin}`} variant="outlined" color="primary">
+                                Send
                         </Button>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </main>
         </div >
