@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import './Projects.scss'
-import instock from '../../assets/images/instock.png';
-import instockMobile from '../../assets/images/instock-mobile.png';
+import ProjectCards from './ProjectCard/ProjectCards'
+import { BASE_URL } from '../../config/apiConfig';
+import { getProjects } from '../../services/api'
+import BarLoader from 'react-spinners/BarLoader'
 
 function Project() {
 
-    const [width, setWidth] = useState(0)
-    useEffect(() => {
-        window.addEventListener('resize', handleWidth)
-        return () => {
-            window.removeEventListener('resize', handleWidth)
-        }
-    }, [])
+    const [loading, setLoading] = useState(true)
+    const [projects, setProjects] = useState([])
 
-    const handleWidth = e => {
-        setWidth(e.target.innerWidth)
-    }
-    // const [liState, setLiState] = useState({
-    //     "All": '',
-    //     'React.js': '',
-    //     'Node.js': '',
-    //     "Php": '',
-    // })
+    useEffect(() => {
+        setLoading(true)
+        getProjects(BASE_URL)
+            .then(res => {
+                setProjects(res.data)
+                setLoading(false)
+            })
+            .catch(err => {
+                console.log(err.message)
+                setLoading(false)
+            })
+    }, [])
 
     const handleLiClick = e => {
     }
@@ -37,13 +37,7 @@ function Project() {
                             <li onClick={handleLiClick}><strong>Php</strong></li>
                         </ul>
                     </div>
-                    <div className="project-cards">
-                        <div className="project-cards__image-holder">
-                            {width >= '720' ?
-                                <img src={instock} alt="instock project" />
-                                : <img src={instockMobile} alt="instock project" />}
-                        </div>
-                    </div>
+                    {loading ? <BarLoader /> : <ProjectCards projects={projects} />}
                 </div>
             </main>
         </div>

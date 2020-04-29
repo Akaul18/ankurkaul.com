@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Home.scss'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
-import banner from '../../assets/images/banner-img.jpg'
+// import banner from '../../assets/images/banner-img.jpg'
 import HireMe from '../HireMe'
 import { Link } from 'react-router-dom'
 
@@ -50,7 +50,7 @@ const Home = () => {
                         </div>
                         <div className="self-intro__image">
                             {/* <div class="self-intro__image-clipart"></div> */}
-                            <img id="imgRef" src={banner} alt="banner" />
+                            <img id="imgRef" src={`/assets/images/banner-img.jpg`} alt="banner" />
                         </div>
                         <p id="pRef">I strongly <em>believe</em> that we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
                         <div>
