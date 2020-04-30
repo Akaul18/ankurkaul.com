@@ -1,7 +1,8 @@
 .projects__main{
     margin:5em 1em 0;
-
+    // height:100vh;
     .projects{
+        // height:100%;
         .project__language-headings{
             // background:green;
             width:100%;
@@ -29,6 +30,9 @@
                     }
                 }
             }
+        }
+        .css-1sxbfa7{
+            margin:13rem auto;
         }
     }
     .background{
