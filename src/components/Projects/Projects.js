@@ -4,11 +4,17 @@ import ProjectCards from './ProjectCard/ProjectCards'
 import { BASE_URL } from '../../config/apiConfig';
 import { getProjects } from '../../services/api'
 import BarLoader from 'react-spinners/BarLoader'
+import ProjectHeadings from './ProjectHeading/ProjectHeadings';
 
 function Project() {
 
     const [loading, setLoading] = useState(true)
     const [projects, setProjects] = useState([])
+
+    useEffect(() => {
+        const hrRef = document.getElementById('hrRef')
+        hrRef.style.transform = 'translateX(0)'
+    }, [])
 
     useEffect(() => {
         setLoading(true)
@@ -23,20 +29,12 @@ function Project() {
             })
     }, [])
 
-    const handleLiClick = e => {
-    }
     return (
         <div>
             <main className="projects__main">
                 <div className="projects">
-                    <div className="project__language-headings">
-                        <ul>
-                            <li onClick={handleLiClick}><strong>All</strong></li>
-                            <li onClick={handleLiClick}><strong>React.js</strong></li>
-                            <li onClick={handleLiClick}><strong>Node.js</strong></li>
-                            <li onClick={handleLiClick}><strong>Php</strong></li>
-                        </ul>
-                    </div>
+                    <ProjectHeadings />
+                    <hr id="hrRef" width="30%" />
                     {loading ? <BarLoader /> : <ProjectCards projects={projects} />}
                 </div>
             </main>

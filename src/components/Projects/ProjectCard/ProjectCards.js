@@ -17,14 +17,15 @@ const ProjectCards = ({ projects }) => {
         <div className="project-cards" >
             <div className="project-cards__holder">
                 {projects.map(project =>
-                    <div key={project.id} className="project-cards__image-holder">
+                    <div id={`img-${project.id}`} key={project.id} className="project-cards__image-holder">
                         {/* <img src={`/assets/images/instock.png`} alt={project.title} /> */}
                         {width >= '720' ?
-                            <img src={`/assets/images/instock-mobile.png`} alt={project.title} />
-                            : <img src={`/assets/images/instock.png`} alt={project.title} />
+                            <img src={`/assets/images/${project.imgTitleDesktop}`} alt={project.title} />
+                            : <img src={`/assets/images/${project.imgTitleDesktop}`} alt={project.title} />
                         }
                     </div>
                 )}
+                <div></div>
             </div>
         </div>
     );

@@ -1,0 +1,28 @@
+.project__language-headings{
+    width:100%;
+    transform: translateY(-40%);
+    transition: transform 0.8s ease-in-out;
+    ul{
+        margin:0;
+        padding:0;
+        width:100%;
+        list-style-type: none;
+        display:flex;
+        justify-content: center;
+        li{
+            text-align: center;
+            width:22%;
+            margin:2rem 1rem;
+            font-size:1.2em;
+            cursor:pointer;
+            transition:0.3s;
+            @media screen and (min-width:720px){
+                width:10%;
+                margin:2rem;
+                &:hover{
+                    color:#f50057;
+                }
+            }
+        }
+    }
+}

@@ -1,38 +1,13 @@
 .projects__main{
     margin:5em 1em 0;
-    // height:100vh;
     .projects{
-        // height:100%;
-        .project__language-headings{
-            // background:green;
-            width:100%;
-            // margin:auto;
-            ul{
-                margin:0;
-                padding:0;
-                width:100%;
-                list-style-type: none;
-                display:flex;
-                justify-content: center;
-                li{
-                    text-align: center;
-                    width:22%;
-                    margin:2rem 1rem;
-                    font-size:1.2em;
-                    cursor:pointer;
-                    transition:0.3s;
-                    @media screen and (min-width:720px){
-                        width:10%;
-                        margin:2rem;
-                        &:hover{
-                            color:#f50057;
-                        }
-                    }
-                }
-            }
-        }
         .css-1sxbfa7{
             margin:13rem auto;
+        }
+        hr{
+            margin:0 auto;
+            transform: translateX(-80%);
+            transition: transform 1s ease-in-out;
         }
     }
     .background{
