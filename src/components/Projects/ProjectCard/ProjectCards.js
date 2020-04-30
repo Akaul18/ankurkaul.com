@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './ProjectCards.scss'
 
 const ProjectCards = ({ projects }) => {
     const [width, setWidth] = useState(0)
@@ -20,8 +21,6 @@ const ProjectCards = ({ projects }) => {
                         {width >= '720' ?
                             <img src={`/assets/images/instock.png`} alt={project.title} />
                             : <img src={`/assets/images/instock-mobile.png`} alt={project.title} />
-                            // <img src={`/${project.imgPathDesktop}`} alt={project.title} />
-                            // : <img src={`/${project.imgPathMobile}`} alt={project.title} />
                         }
                     </div>
                 )}
