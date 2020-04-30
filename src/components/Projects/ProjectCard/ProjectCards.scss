@@ -12,6 +12,7 @@
         .project-cards__image-holder{
             width:100%;
             height:300px;
+            // height:auto;
             margin:1rem 0;
             cursor:pointer;
             box-shadow:0 7px 11px rgba(0,0,0,0.3);
@@ -39,6 +40,26 @@
             &:hover{
                 @media screen and(min-width:720px){
                     transform: scale(1.1)
+                }
+            }
+            .project-cards__proj-details{
+                .proj-details__title{
+                    margin:0 1rem;
+                    letter-spacing: 1px;
+                    &::first-letter{
+                        text-transform:capitalize;
+                    }
+                }
+                .proj-details__desc{}
+                .proj-details__call-to-action{
+                    text-align: right;
+                    .call-to-action-buttons{
+                        margin:0.5rem;
+                        a{
+                            color:inherit;
+                            text-decoration: none;
+                        }
+                    }
                 }
             }
         }
