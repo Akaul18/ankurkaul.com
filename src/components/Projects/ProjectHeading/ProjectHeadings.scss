@@ -16,6 +16,8 @@
             font-size:1.2em;
             cursor:pointer;
             transition:0.3s;
+            letter-spacing:1px;
+            font-weight: bold;
             @media screen and (min-width:720px){
                 width:10%;
                 margin:2rem;
@@ -24,5 +26,8 @@
                 }
             }
         }
+    }
+    .background{
+        background:#f50057;   
     }
 }
