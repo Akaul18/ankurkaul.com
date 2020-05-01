@@ -9,7 +9,12 @@ const Header = ({ drawerToggleHandler }) => (
             <div className="header__menu-icon">
                 <DrawerButton drawerToggleHandler={drawerToggleHandler} />
             </div>
-            <div className="header__logo"><Link to="/"><strong>My Logo</strong></Link></div>
+            {/* <div className="header__logo"><Link to="/"><strong>My Logo</strong></Link></div> */}
+            <div className="header__logo"><Link to="/">
+                {/* <div className="logo-parent"> */}
+                <img src="/assets/images/logo.png" alt="logo" />
+                {/* </div> */}
+            </Link></div>
             <div className="spacer"></div>
             <div className="header__nav-items">
                 <ul>
@@ -21,7 +26,7 @@ const Header = ({ drawerToggleHandler }) => (
                 </ul>
             </div>
         </nav>
-    </header >
+    </header>
 )
 
 export default Header

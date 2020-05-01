@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './ProjectHeadings.scss'
 
 function ProjectHeadings() {
-
-    // const [state, setState] = useState({
-    //     all: true,
-    //     react: false,
-    //     node: false,
-    //     php: false,
-    // })
 
     useEffect(() => {
         const headingRef = document.getElementById('headingRef')
@@ -16,7 +9,6 @@ function ProjectHeadings() {
     }, [])
 
     const handleLiClick = e => {
-        // console.log(e.target.parentNode)
         const ul = [...[e.target.parentNode.childNodes]]
         ul[0].forEach(li => {
             console.log(li)
