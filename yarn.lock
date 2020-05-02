@@ -9143,7 +9143,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9365,6 +9365,13 @@ react-icons@^3.10.0:
   integrity sha512-WsQ5n1JToG9VixWilSo1bHv842Cj5aZqTGiS3Ud47myF6aK7S/IUY2+dHcBdmkQcCFRuHsJ9OMUI0kTDfjyZXQ==
   dependencies:
     camelcase "^5.0.0"
+
+react-image-appear@^1.2.23:
+  version "1.2.23"
+  resolved "https://registry.yarnpkg.com/react-image-appear/-/react-image-appear-1.2.23.tgz#4a8d17eda91f84ce3dca1e5a571dabb436b6616f"
+  integrity sha512-MO5IL9CmJTLUhgm7AnUl23z9V4FWowB9k2KNZQbITrNRdPZ8qgPY1aJwCaKvExApwPMe9AInnpby2TsVwx5YXQ==
+  dependencies:
+    prop-types "^15.6.1"
 
 react-is@^16.12.0, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is@^16.8.4:
   version "16.13.1"

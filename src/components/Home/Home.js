@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import './Home.scss'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
-// import banner from '../../assets/images/banner-img.jpg'
 import HireMe from '../HireMe'
 import { Link } from 'react-router-dom'
+import ReactImageAppear from 'react-image-appear'
+import BarLoader from 'react-spinners/BarLoader'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -49,7 +50,13 @@ const Home = () => {
                             <h3 id="h3Ref">A Full stack developer <span><em>by choice </em> </span></h3>
                         </div>
                         <div className="self-intro__image">
-                            {/* <div class="self-intro__image-clipart"></div> */}
+                            {/* <ReactImageAppear
+                                src={`/assets/images/banner-img.jpg`}
+                                animation="bounceIn"
+                                easing="ease-in-out"
+                                animationDuration="1.5s"
+                                loader={<BarLoader loading />}
+                            /> */}
                             <img id="imgRef" src={`/assets/images/banner-img.jpg`} alt="banner" />
                         </div>
                         <p id="pRef">I strongly <em>believe</em> that we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>

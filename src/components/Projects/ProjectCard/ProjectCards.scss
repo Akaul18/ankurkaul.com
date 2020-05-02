@@ -60,6 +60,11 @@
             }
         }
         .project-cards__image-holder{
+            div{
+                &:last-child{
+                    display:none;
+                }
+            }
             img{
                 object-fit: cover;
                 max-width:100%;

@@ -1,33 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './ProjectCards.scss'
 import Button from '@material-ui/core/Button'
+import ReactImageAppear from 'react-image-appear'
 
 const ProjectCards = ({ projects }) => {
-    const [width, setWidth] = useState(0)
-
-    useEffect(() => {
-        // const imgCards = 
-    }, [])
-
-    useEffect(() => {
-        window.addEventListener('resize', handleWidth)
-        return () => {
-            window.removeEventListener('resize', handleWidth)
-        }
-    }, [])
-
-    const handleWidth = e => {
-        setWidth(e.target.innerWidth)
-    }
     return (
         <div className="project-cards" >
             {/* <div className="project-cards__holder"> */}
             {projects.map(project =>
                 <div id={`holder-${project.id}`} key={project.id} className="project-cards__holder">
                     <div className="project-cards__image-holder">
-                        {width >= '720' ?
-                            <img src={`/assets/images/${project.imgTitleDesktop}`} alt={project.title} />
-                            : <img src={`/assets/images/${project.imgTitleDesktop}`} alt={project.title} />}
+                        <ReactImageAppear
+                            src={`/assets/images/${project.imgTitleDesktop}`}
+                            animation="bounceIn"
+                            easing="ease-in-out"
+                            animationDuration="1s"
+                        />
                     </div>
                     <div className="project-cards__proj-details">
                         <div className="proj-details__title">{project.title}</div>
