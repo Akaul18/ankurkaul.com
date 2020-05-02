@@ -61,7 +61,7 @@
         }
         .project-cards__image-holder{
             div{
-                &:last-child{
+                img:last-child{
                     display:none;
                 }
             }
