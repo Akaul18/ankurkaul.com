@@ -1,24 +1,14 @@
 import React from 'react'
 import './ProjectCards.scss'
 import Button from '@material-ui/core/Button'
-import ReactImageAppear from 'react-image-appear'
 
 const ProjectCards = ({ projects }) => {
     return (
         <div className="project-cards" >
-            {/* <div className="project-cards__holder"> */}
             {projects.map(project =>
                 <div id={`holder-${project.id}`} key={project.id} className="project-cards__holder">
                     <div className="project-cards__image-holder">
-                        {/* <ReactImageAppear
-                            style={{ background: 'none' }}
-                            src={`/assets/images/${project.imgTitleDesktop}`}
-                            animation="bounceIn"
-                            easing="ease-in-out"
-                            animationDuration="1s"
-                        /> */}
                         <img
-                            // className="bounce"
                             src={`/assets/images/${project.imgTitleDesktop}`}
                             alt={`${project.imgTitleDesktop} logo`}
                         />
@@ -30,14 +20,14 @@ const ProjectCards = ({ projects }) => {
                             <Button className="call-to-action-buttons" variant="outlined" size="small" color="primary">
                                 <strong>
                                     <a href={project.github} taget="_blank">
-                                        View Github</a>
+                                        Github</a>
                                 </strong>
                             </Button>
                             {
-                                project.website === "" ? <Button className="call-to-action-buttons" disabled variant="outlined" size="small">Open Web App</Button>
+                                project.website === "" ? <Button className="call-to-action-buttons" disabled variant="outlined" size="small">Website</Button>
                                     : <Button className="call-to-action-buttons" variant="outlined" size="small" color="secondary">
                                         <strong>
-                                            <a href={project.website} taget="_blank">Open Web App</a>
+                                            <a href={project.website} taget="_blank">Website</a>
                                         </strong>
                                     </Button>
                             }
@@ -45,7 +35,6 @@ const ProjectCards = ({ projects }) => {
                     </div>
                 </div>
             )}
-            {/* </div> */}
         </div>
     );
 }

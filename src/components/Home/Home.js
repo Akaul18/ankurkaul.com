@@ -4,8 +4,6 @@ import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import HireMe from '../HireMe'
 import { Link } from 'react-router-dom'
-import ReactImageAppear from 'react-image-appear'
-import BarLoader from 'react-spinners/BarLoader'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -17,20 +15,14 @@ const useStyles = makeStyles(theme => ({
 const Home = () => {
 
     const [openDialog, setOpenDialog] = useState(false);
-    const [imgLoading, setImgLoading] = useState(true)
     React.useEffect(() => {
         const h1Ref = document.getElementById('h1Ref')
         const h3Ref = document.getElementById('h3Ref')
         const pRef = document.getElementById('pRef')
-        // const imgRef = document.getElementById('imgRef')
-        // setImgLoading(document.getElementById('imgRef').complete)
 
         h1Ref.style.transform = 'translateX(0)';
         h3Ref.style.transform = 'translateY(0)';
         pRef.style.transform = 'translateY(0)';
-        // imgRef.style.transform = 'scale(1)';
-
-        handleImgLoad()
     }, [])
 
     const handleClickOpen = () => {
@@ -41,11 +33,6 @@ const Home = () => {
         setOpenDialog(false);
     };
 
-    const handleImgLoad = () => {
-        setTimeout(() => {
-            setImgLoading(false)
-        }, 2000)
-    }
     const classes = useStyles();
     return (
         <div>
@@ -59,14 +46,6 @@ const Home = () => {
                             <h3 id="h3Ref">A Full stack developer <span><em>by choice </em> </span></h3>
                         </div>
                         <div className="self-intro__image">
-                            {/* <ReactImageAppear
-                                style={{ background: 'none' }}
-                                src={`/assets/images/banner-img.jpg`}
-                                animation="bounceIn"
-                                animationDuration="1.5s"
-                            /> */}
-
-
                             <img
                                 src={`/assets/images/banner-img.jpg`}
                                 alt="banner" />
