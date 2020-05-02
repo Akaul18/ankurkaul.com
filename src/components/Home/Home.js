@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import HireMe from '../HireMe'
 import { Link } from 'react-router-dom'
 import ReactImageAppear from 'react-image-appear'
-// import BarLoader from 'react-spinners/BarLoader'
+import BarLoader from 'react-spinners/BarLoader'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -29,8 +29,9 @@ const Home = () => {
         h3Ref.style.transform = 'translateY(0)';
         pRef.style.transform = 'translateY(0)';
         // imgRef.style.transform = 'scale(1)';
-    }, [])
 
+        handleImgLoad()
+    }, [])
 
     const handleClickOpen = () => {
         setOpenDialog(true);
@@ -41,9 +42,9 @@ const Home = () => {
     };
 
     const handleImgLoad = () => {
-        setImgLoading(false)
-        // const imgRef = document.getElementById('imgRef')
-        // setImgLoading(prevState => !prevState)
+        setTimeout(() => {
+            setImgLoading(false)
+        }, 2000)
     }
     const classes = useStyles();
     return (
@@ -58,16 +59,17 @@ const Home = () => {
                             <h3 id="h3Ref">A Full stack developer <span><em>by choice </em> </span></h3>
                         </div>
                         <div className="self-intro__image">
-                            <ReactImageAppear
+                            {/* <ReactImageAppear
+                                style={{ background: 'none' }}
                                 src={`/assets/images/banner-img.jpg`}
                                 animation="bounceIn"
                                 animationDuration="1.5s"
-                                loader="none"
-                            />
-                            {/* <img id="imgRef"
+                            /> */}
+
+
+                            <img
                                 src={`/assets/images/banner-img.jpg`}
-                                alt="banner"
-                                onLoad={handleImgLoad} /> */}
+                                alt="banner" />
                         </div>
                         <p id="pRef">I strongly <em>believe</em> that we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
                         <div>

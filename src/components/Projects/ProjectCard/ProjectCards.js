@@ -10,11 +10,17 @@ const ProjectCards = ({ projects }) => {
             {projects.map(project =>
                 <div id={`holder-${project.id}`} key={project.id} className="project-cards__holder">
                     <div className="project-cards__image-holder">
-                        <ReactImageAppear
+                        {/* <ReactImageAppear
+                            style={{ background: 'none' }}
                             src={`/assets/images/${project.imgTitleDesktop}`}
                             animation="bounceIn"
                             easing="ease-in-out"
                             animationDuration="1s"
+                        /> */}
+                        <img
+                            // className="bounce"
+                            src={`/assets/images/${project.imgTitleDesktop}`}
+                            alt={`${project.imgTitleDesktop} logo`}
                         />
                     </div>
                     <div className="project-cards__proj-details">
