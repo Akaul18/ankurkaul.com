@@ -26,7 +26,7 @@ const ProjectHeadings = ({ projChange }) => {
                 <li className="back background" onClick={handleLiClick}>All</li>
                 <li className="back" onClick={handleLiClick}>React.js</li>
                 <li className="back" onClick={handleLiClick}>Node.js</li>
-                <li className="back" onClick={handleLiClick}>Php</li>
+                <li className="back" onClick={handleLiClick}>PHP</li>
             </ul>
         </div>
     )
