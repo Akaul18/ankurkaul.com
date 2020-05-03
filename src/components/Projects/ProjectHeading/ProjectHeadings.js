@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './ProjectHeadings.scss'
 
-function ProjectHeadings() {
+const ProjectHeadings = ({ projChange }) => {
 
     useEffect(() => {
         const headingRef = document.getElementById('headingRef')
@@ -11,12 +11,14 @@ function ProjectHeadings() {
     const handleLiClick = e => {
         const ul = [...[e.target.parentNode.childNodes]]
         ul[0].forEach(li => {
-            console.log(li)
+            // console.log(li)
             li.classList.remove('background');
             li.classList.add('background-negate')
         })
         e.target.classList.remove('background-negate')
         e.target.classList.add('background')
+
+        projChange(e.target.textContent)
     }
     return (
         <div id="headingRef" className="project__language-headings">

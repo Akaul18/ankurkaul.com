@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './ProjectCards.scss'
 import Button from '@material-ui/core/Button'
 
-const ProjectCards = ({ projects }) => {
+const ProjectCards = ({ projects, type }) => {
+
+    const [filterProjects, setFilterProjects] = useState([])
+
+    useEffect(() => {
+        setFilterProjects(projects.filter(project =>
+            project.keyword.includes(type)
+        ))
+    }, [projects, type])
+
     return (
-        <div className="project-cards" >
-            {projects.map(project =>
+        <div className="project-cards">
+            {filterProjects.map(project =>
                 <div id={`holder-${project.id}`} key={project.id} className="project-cards__holder">
                     <div className="project-cards__image-holder">
                         <img
@@ -24,7 +33,8 @@ const ProjectCards = ({ projects }) => {
                                 </strong>
                             </Button>
                             {
-                                project.website === "" ? <Button className="call-to-action-buttons" disabled variant="outlined" size="small">Website</Button>
+                                project.website === "" ?
+                                    <Button className="call-to-action-buttons" disabled variant="outlined" size="small">Website</Button>
                                     : <Button className="call-to-action-buttons" variant="outlined" size="small" color="secondary">
                                         <strong>
                                             <a href={project.website} taget="_blank">Website</a>
@@ -34,7 +44,8 @@ const ProjectCards = ({ projects }) => {
                         </div>
                     </div>
                 </div>
-            )}
+            )
+            }
         </div>
     );
 }

@@ -10,10 +10,12 @@ function Project() {
 
     const [loading, setLoading] = useState(true)
     const [projects, setProjects] = useState([])
+    const [handleProjectChange, setHandleProjectChange] = useState('all')
 
     useEffect(() => {
         const hrRef = document.getElementById('hrRef')
         hrRef.style.transform = 'translateX(0)'
+
     }, [])
 
     useEffect(() => {
@@ -29,13 +31,28 @@ function Project() {
             })
     }, [])
 
+    const handleProjChange = (input) => {
+        if (input.toLowerCase() === 'react.js') {
+            setHandleProjectChange('react')
+        }
+        else if (input.toLowerCase() === 'node.js') {
+            setHandleProjectChange('node')
+        }
+        else if (input.toLowerCase() === 'php') {
+            setHandleProjectChange('php')
+        }
+        else {
+            setHandleProjectChange('all')
+        }
+    }
+
     return (
         <div>
             <main className="projects__main">
                 <div className="projects">
-                    <ProjectHeadings />
+                    <ProjectHeadings projChange={handleProjChange} />
                     <hr id="hrRef" width="30%" />
-                    {loading ? <BarLoader /> : <ProjectCards projects={projects} />}
+                    {loading ? <BarLoader /> : <ProjectCards projects={projects} type={handleProjectChange} />}
                 </div>
             </main>
         </div>
