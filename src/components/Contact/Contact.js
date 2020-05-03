@@ -5,7 +5,8 @@ import { RiLinkedinBoxLine } from 'react-icons/ri'
 import { GoMarkGithub } from 'react-icons/go'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles'
+import { sendEmail } from '../../services/api'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -14,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 }))
 const Contact = props => {
 
+    const [emailSent, setEmailSent] = useState(false)
     useEffect(() => {
         const contactDetails = document.getElementById('contact-details');
         contactDetails.style.transform = 'scale(1)'
@@ -36,6 +38,12 @@ const Contact = props => {
 
     const submitForm = e => {
         //api call to node
+        e.preventDefault()
+        sendEmail(state.name, state.company, state.email, state.contactNumber, state.message)
+            .then(res => {
+                // if(res)
+                console.log(res)
+            })
     }
 
     const classes = useStyles()

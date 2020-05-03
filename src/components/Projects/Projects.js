@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Projects.scss'
 import ProjectCards from './ProjectCard/ProjectCards'
-import { BASE_URL } from '../../config/apiConfig';
 import { getProjects } from '../../services/api'
 import BarLoader from 'react-spinners/BarLoader'
 import ProjectHeadings from './ProjectHeading/ProjectHeadings';
@@ -20,7 +19,7 @@ function Project() {
 
     useEffect(() => {
         setLoading(true)
-        getProjects(BASE_URL)
+        getProjects()
             .then(res => {
                 setProjects(res.data)
                 setLoading(false)
