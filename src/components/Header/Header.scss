@@ -46,8 +46,10 @@
             // }
         }
         .spacer{
-            flex:1;
+            display:none;
             @media screen and(min-width:720px){
+                display:block;
+                flex:1;
             }
         }
         .header__nav-items{
@@ -73,8 +75,7 @@
                         font-size:1.1em;
                         transition:0.3s ease-in-out;
                         &:hover{
-                            color:#f50057;
-                            
+                            color:#f50057;   
                         }
                     }
                 }
