@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import { sendEmail } from '../../services/api'
+import BarLoader from 'react-spinners/BarLoader'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -39,11 +40,25 @@ const Contact = props => {
     const submitForm = e => {
         //api call to node
         e.preventDefault()
-        sendEmail(state.name, state.company, state.email, state.contactNumber, state.message)
+        sendEmail(state)
             .then(res => {
-                // if(res)
-                console.log(res)
+                setEmailSent(true)
+                if (res.status === 200) {
+                    setState({
+                        name: '',
+                        company: '',
+                        email: '',
+                        contactNumber: '',
+                        message: '',
+                    })
+                    setEmailSent(false)
+                    alert('Message successfully sent')
+                } else {
+                    setEmailSent(false)
+                    alert("Something went wrong..!! Please try again in sometime")
+                }
             })
+            .catch(err => alert("Something went wrong..!! Please try again in sometime"))
     }
 
     const classes = useStyles()
@@ -67,13 +82,15 @@ const Contact = props => {
                 </div>
                 <div id="contact-details" className="contact-details">
                     <h1>Get in touch with me</h1>
+                    {/* {emailSent ? */}
+                    {/* <BarLoader /> : */}
                     <form>
                         <div>
-                            <TextField inputProps={{ autoFocus: true }} className="contact-details__fields" id="standard-basic" label="Name" onChange={handleChange('name')} />
+                            <TextField inputProps={{ autoFocus: true }} className="contact-details__fields" id="standard-basic" label="Name*" onChange={handleChange('name')} />
                             <TextField className="contact-details__fields" id="standard-basic" label="Company" onChange={handleChange('company')} />
-                            <TextField className="contact-details__fields" id="standard-basic" label="Email" onChange={handleChange('email')} />
+                            <TextField className="contact-details__fields" id="standard-basic" label="Email*" onChange={handleChange('email')} />
                             <TextField className="contact-details__fields" id="standard-basic" label="Contact Number" onChange={handleChange('contactNumber')} />
-                            <TextField className="contact-details__fields" multiline rows={2} id="standard-basic" label="Message" onChange={handleChange('message')} />
+                            <TextField className="contact-details__fields" multiline rows={2} id="standard-basic" label="Message*" onChange={handleChange('message')} />
                         </div>
                         <div>
                             <Button onClick={submitForm} className={`send-message ${classes.margin}`} variant="outlined" color="primary">
@@ -81,6 +98,7 @@ const Contact = props => {
                             </Button>
                         </div>
                     </form>
+                    {/* } */}
                 </div>
             </main>
         </div >
