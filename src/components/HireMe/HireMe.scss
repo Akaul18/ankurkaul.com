@@ -17,4 +17,16 @@
 
 .email{
     margin: 1rem 0;
+    label.Mui-focused::after{
+        content:'*';
+        color:red;
+    }
 }
+
+.descLabel{
+    label.Mui-focused::after{
+        content:'*';
+        color:red;
+    }
+}
+    

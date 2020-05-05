@@ -1,28 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import './HireMe.scss'
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import InputLabel from '@material-ui/core/InputLabel'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
+import { sendInquiry } from '../../services/api'
 
 const HireMe = ({ open, handleClose }) => {
     const [workType, setWorkType] = useState('');
     const [position, setPosition] = useState('');
     const [email, setEmail] = useState('');
-    const [description, setdescription] = useState('');
+    const [description, setDescription] = useState('');
 
-    const handleTypeWorkChange = e => {
-        setWorkType(e.target.value)
-    };
+    const close = () => {
+        setPosition('')
+        setWorkType('')
+        setEmail('')
+        setDescription('')
+        handleClose()
+    }
 
     const handleTypePositionChange = e => {
         setPosition(e.target.value)
+    }
+
+    const handleTypeWorkChange = e => {
+        setWorkType(e.target.value)
     }
 
     const handleEmailChange = e => {
@@ -30,7 +39,23 @@ const HireMe = ({ open, handleClose }) => {
     }
 
     const handleDescriptionChange = e => {
-        setdescription(e.target.value)
+        setDescription(e.target.value)
+    }
+
+
+    const send = () => {
+        sendInquiry(position, workType, email, description)
+            .then(res => {
+                if (res.status === 200) {
+                    alert("Inquiry sent successfully. \nI'll get back to you as soon as I can")
+                    setPosition('')
+                    setWorkType('')
+                    setEmail('')
+                    setDescription('')
+                    handleClose()
+                }
+            })
+
     }
 
     let sendButton = '';
@@ -39,19 +64,34 @@ const HireMe = ({ open, handleClose }) => {
             <strong>Send inquiry</strong>
         </Button>
     } else {
-        sendButton = <Button onClick={handleClose} color="primary">
+        sendButton = <Button onClick={send} color="primary">
             <strong>Send inquiry</strong>
         </Button>
     }
 
     return (
         <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-            <DialogTitle id="form-dialog-title">Want to hire me? Send me an inquery</DialogTitle>
+            <DialogTitle id="form-dialog-title">Want to hire me? Send me an inquiry</DialogTitle>
             <DialogContent>
                 <DialogContentText>
                     Please provide a brief description of your work opportunity and I'll get back to you as soon as I can.
                 </DialogContentText>
                 <div className="work-position">
+                    <div>
+                        <InputLabel className="type-of-position-label">
+                            Position to hire<span style={{ color: 'red' }}>*</span>
+                        </InputLabel>
+                        <Select
+                            className="type-of-position"
+                            value={position}
+                            onChange={handleTypePositionChange}
+                            label="Type of work"
+                        >
+                            <MenuItem value="frontend">Frontend developer</MenuItem>
+                            <MenuItem value="backend">Backend developer</MenuItem>
+                            <MenuItem value="fullstack">Full stack</MenuItem>
+                        </Select>
+                    </div>
                     <div>
                         <InputLabel
                             className="type-of-work-label"
@@ -65,27 +105,10 @@ const HireMe = ({ open, handleClose }) => {
                             value={workType}
                             onChange={handleTypeWorkChange}
                             label="Type of work"
-
                         >
                             <MenuItem value="full">Full time</MenuItem>
                             <MenuItem value="hourly">Hourly rate</MenuItem>
                             <MenuItem value="fixed">Fixed rate</MenuItem>
-                        </Select>
-                    </div>
-                    <div>
-                        <InputLabel className="type-of-position-label">
-                            Position to hire<span style={{ color: 'red' }}>*</span>
-                        </InputLabel>
-                        <Select
-                            className="type-of-position"
-                            value={position}
-                            onChange={handleTypePositionChange}
-                            label="Type of work"
-
-                        >
-                            <MenuItem value="frontend">Frontend developer</MenuItem>
-                            <MenuItem value="backend">Backend developer</MenuItem>
-                            <MenuItem value="fullstack">Full stack</MenuItem>
                         </Select>
                     </div>
                 </div>
@@ -102,6 +125,7 @@ const HireMe = ({ open, handleClose }) => {
                     />
                 </div>
                 <TextField
+                    className="descLabel"
                     style={{ width: '100%', marginTop: '0.5rem' }}
                     id="outlined-multiline-static"
                     label="Description"
@@ -114,7 +138,7 @@ const HireMe = ({ open, handleClose }) => {
                 />
             </DialogContent>
             <DialogActions>
-                <Button onClick={handleClose} color="primary">
+                <Button onClick={close} color="primary">
                     <strong>Cancel</strong>
                 </Button>
                 {sendButton}

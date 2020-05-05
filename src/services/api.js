@@ -10,13 +10,20 @@ export const getProjects = async () => {
     }
 }
 
-// export const sendEmail = async (name, company, email, contactNumber, message) => {
 export const sendEmail = async (state) => {
     try {
-        // const response = await axios.post(`${BASE_URL}/contact`, {
-        //     name, company, email, contactNumber, message
-        // })
         const response = await axios.post(`${BASE_URL}/contact`, state)
+        return response
+    } catch (e) {
+        return e.message
+    }
+}
+
+export const sendInquiry = async (position, workType, email, description) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/hireme`, {
+            position, workType, email, description
+        })
         return response
     } catch (e) {
         return e.message
