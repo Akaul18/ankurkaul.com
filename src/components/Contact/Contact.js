@@ -7,7 +7,8 @@ import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import { makeStyles } from '@material-ui/core/styles'
 import { sendEmail } from '../../services/api'
-import BarLoader from 'react-spinners/BarLoader'
+// import BarLoader from 'react-spinners/BarLoader'
+import Backdrop from '../Backdrop';
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 }))
 const Contact = props => {
 
-    const [emailSent, setEmailSent] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
     useEffect(() => {
         const contactDetails = document.getElementById('contact-details');
         contactDetails.style.transform = 'scale(1)'
@@ -40,9 +41,9 @@ const Contact = props => {
     const submitForm = e => {
         //api call to node
         e.preventDefault()
+        setIsLoading(true)
         sendEmail(state)
             .then(res => {
-                setEmailSent(true)
                 if (res.status === 200) {
                     setState({
                         name: '',
@@ -51,10 +52,10 @@ const Contact = props => {
                         contactNumber: '',
                         message: '',
                     })
-                    setEmailSent(false)
                     alert('Message successfully sent')
+                    setIsLoading(false)
                 } else {
-                    setEmailSent(false)
+                    setIsLoading(false)
                     alert("Something went wrong..!! Please try again in sometime")
                 }
             })
@@ -67,6 +68,7 @@ const Contact = props => {
     let github = 'https://github.com/Akaul18'
     return (
         <div>
+            {isLoading && <Backdrop />}
             <main className="contact__main">
                 <div className="my-contact-card">
                     <div className="clipart"></div>
@@ -80,10 +82,9 @@ const Contact = props => {
                         </ul>
                     </div>
                 </div>
+
                 <div id="contact-details" className="contact-details">
                     <h1>Get in touch with me</h1>
-                    {/* {emailSent ? */}
-                    {/* <BarLoader /> : */}
                     <form>
                         <div>
                             <TextField inputProps={{ autoFocus: true }} className="contact-details__fields" id="standard-basic" label="Name*" onChange={handleChange('name')} />
@@ -98,10 +99,9 @@ const Contact = props => {
                             </Button>
                         </div>
                     </form>
-                    {/* } */}
                 </div>
             </main>
-        </div >
+        </div>
     )
 }
 
