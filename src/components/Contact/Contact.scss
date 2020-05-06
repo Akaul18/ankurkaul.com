@@ -74,25 +74,26 @@
         h1{
             margin:2rem 0 0;
             text-align:center;
+            color:rgba(0,0,0,0.9);
         }
-        div{
-            width:100%;
-            height:auto;
-            text-align:center;
-            .contact-details__fields{
-                box-shadow: initial;
-                width:45%;
-                margin:0.5rem;
-                &:last-child{
-                    // width:85%;
-                    width:94%;
-                    @media screen and (min-width:720px){
-                        // width:81.3%;
-                        width:91.8%;
-                    }
-                }
-            }
-        }
+        // div{
+        //     width:100%;
+        //     height:auto;
+        //     text-align:center;
+        //     .contact-details__fields{
+        //         box-shadow: initial;
+        //         width:45%;
+        //         margin:0.5rem;
+        //         &:last-child{
+        //             // width:85%;
+        //             width:94%;
+        //             @media screen and (min-width:720px){
+        //                 // width:81.3%;
+        //                 width:91.8%;
+        //             }
+        //         }
+        //     }
+        // }
         & div:nth-of-type(2){
             text-align: right;
             .send-message{

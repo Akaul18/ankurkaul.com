@@ -37,7 +37,7 @@ const ProjectCards = ({ projects, type }) => {
                                     <Button className="call-to-action-buttons" disabled variant="outlined" size="small">Website</Button>
                                     : <Button className="call-to-action-buttons" variant="outlined" size="small" color="secondary">
                                         <strong>
-                                            <a href={project.website} taget="_blank">Website</a>
+                                            <a href={project.website} taget="_blank" rel="noreferrer noopener">Website</a>
                                         </strong>
                                     </Button>
                             }

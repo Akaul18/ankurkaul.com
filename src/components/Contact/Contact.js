@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './Contact.scss'
 import { AiOutlineMail } from 'react-icons/ai'
 import { RiLinkedinBoxLine } from 'react-icons/ri'
 import { GoMarkGithub } from 'react-icons/go'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles'
 import { sendEmail } from '../../services/api'
-// import BarLoader from 'react-spinners/BarLoader'
-import Backdrop from '../Backdrop';
+import Backdrop from '../Backdrop'
+import validator from 'email-validator'
+import Thankyou from '../Thankyou';
+import Form from '../Form';
 
-const useStyles = makeStyles(theme => ({
-    margin: {
-        margin: theme.spacing(1),
-    }
-}))
-const Contact = props => {
+const Contact = () => {
 
     const [isLoading, setIsLoading] = useState(false)
-    useEffect(() => {
-        const contactDetails = document.getElementById('contact-details');
-        contactDetails.style.transform = 'scale(1)'
-    }, [])
-
+    const [showThankyou, setShowThankyou] = useState(false)
     const [state, setState] = useState({
         name: '',
         company: '',
@@ -39,30 +29,39 @@ const Contact = props => {
     }
 
     const submitForm = e => {
+
         //api call to node
         e.preventDefault()
-        setIsLoading(true)
-        sendEmail(state)
-            .then(res => {
-                if (res.status === 200) {
-                    setState({
-                        name: '',
-                        company: '',
-                        email: '',
-                        contactNumber: '',
-                        message: '',
-                    })
-                    alert('Message successfully sent')
-                    setIsLoading(false)
-                } else {
-                    setIsLoading(false)
+        const validatedEmail = validator.validate(state.email)
+        if (state.name === '' || state.email === '' || state.message === '') {
+            alert('Fields marked with * cannot be left blank')
+        } else if (!validatedEmail) {
+            alert('Email entered is not valid')
+        } else {
+            setIsLoading(true)
+            sendEmail(state)
+                .then(res => {
+                    if (res.status === 200) {
+                        setShowThankyou(true)
+                        setIsLoading(false)
+                    } else {
+                        alert("Something went wrong..!! Please try again in sometime")
+                        setShowThankyou(false)
+                        setIsLoading(false)
+                    }
+                })
+                .catch(err => {
                     alert("Something went wrong..!! Please try again in sometime")
-                }
-            })
-            .catch(err => alert("Something went wrong..!! Please try again in sometime"))
+                    setShowThankyou(false)
+                    setIsLoading(false)
+                })
+        }
     }
 
-    const classes = useStyles()
+    const handleThankyou = () => {
+        setShowThankyou(false)
+    }
+
     let email = 'ankurkaul1894@gmail.com'
     let linkedin = 'https://linkedin.com/in/ankurkaul1894'
     let github = 'https://github.com/Akaul18'
@@ -83,23 +82,11 @@ const Contact = props => {
                     </div>
                 </div>
 
-                <div id="contact-details" className="contact-details">
-                    <h1>Get in touch with me</h1>
-                    <form>
-                        <div>
-                            <TextField inputProps={{ autoFocus: true }} className="contact-details__fields" id="standard-basic" label="Name*" onChange={handleChange('name')} />
-                            <TextField className="contact-details__fields" id="standard-basic" label="Company" onChange={handleChange('company')} />
-                            <TextField className="contact-details__fields" id="standard-basic" label="Email*" onChange={handleChange('email')} />
-                            <TextField className="contact-details__fields" id="standard-basic" label="Contact Number" onChange={handleChange('contactNumber')} />
-                            <TextField className="contact-details__fields" multiline rows={2} id="standard-basic" label="Message*" onChange={handleChange('message')} />
-                        </div>
-                        <div>
-                            <Button onClick={submitForm} className={`send-message ${classes.margin}`} variant="outlined" color="primary">
-                                <strong>Send</strong>
-                            </Button>
-                        </div>
-                    </form>
-                </div>
+
+                {!showThankyou ?
+                    <Form handleChange={handleChange} submitForm={submitForm} />
+                    : <Thankyou handleThankyou={handleThankyou} />
+                }
             </main>
         </div>
     )
