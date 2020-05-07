@@ -11,6 +11,7 @@ import InputLabel from '@material-ui/core/InputLabel'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import { sendInquiry } from '../../services/api'
+import validator from 'email-validator'
 
 const HireMe = ({ open, handleClose }) => {
     const [workType, setWorkType] = useState('');
@@ -44,18 +45,26 @@ const HireMe = ({ open, handleClose }) => {
 
 
     const send = () => {
-        sendInquiry(position, workType, email, description)
-            .then(res => {
-                if (res.status === 200) {
-                    alert("Inquiry sent successfully. \nI'll get back to you as soon as I can")
-                    setPosition('')
-                    setWorkType('')
-                    setEmail('')
-                    setDescription('')
+        const validatedEmail = validator.validate(email)
+        if (!validatedEmail) {
+            alert('Email entered is not valid')
+        } else {
+            sendInquiry(position, workType, email, description)
+                .then(res => {
+                    if (res.status === 200) {
+                        alert("Inquiry sent successfully. \nI'll get back to you as soon as I can")
+                        setPosition('')
+                        setWorkType('')
+                        setEmail('')
+                        setDescription('')
+                        handleClose()
+                    }
+                })
+                .catch(err => {
+                    alert("Error while sending message. Please try again after sometime")
                     handleClose()
-                }
-            })
-
+                })
+        }
     }
 
     let sendButton = '';
