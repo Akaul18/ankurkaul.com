@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 
 const Header = ({ drawerToggleHandler, currentURLPath }) => {
 
-    React.useEffect(() => {
-        console.log(currentURLPath)
-    }, [currentURLPath])
     return (
         <header className="header">
             <nav className="header__navigation">

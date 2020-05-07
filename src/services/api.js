@@ -10,6 +10,16 @@ export const getProjects = async () => {
     }
 }
 
+export const getSkills = async () => {
+    try {
+        const response = await axios.get(`${BASE_URL}/skills`)
+        const skills = await response.data
+        return skills
+    } catch (e) {
+        throw e
+    }
+}
+
 export const sendEmail = async (state) => {
     try {
         const response = await axios.post(`${BASE_URL}/contact`, state)
