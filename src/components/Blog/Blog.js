@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Blog.scss'
 
-function Blog() {
+const Blog = ({ handleActiveLink }) => {
+
+    useEffect(() => {
+        handleActiveLink(window.location.pathname)
+    }, [handleActiveLink])
+
     return (
         <div>
             <main className="blog__main">

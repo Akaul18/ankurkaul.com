@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Contact.scss'
 import { AiOutlineMail } from 'react-icons/ai'
 import { RiLinkedinBoxLine } from 'react-icons/ri'
@@ -9,7 +9,11 @@ import validator from 'email-validator'
 import Thankyou from '../Thankyou';
 import Form from '../Form';
 
-const Contact = () => {
+const Contact = ({ handleActiveLink }) => {
+
+    useEffect(() => {
+        handleActiveLink(window.location.pathname)
+    }, [handleActiveLink])
 
     const [isLoading, setIsLoading] = useState(false)
     const [showThankyou, setShowThankyou] = useState(false)

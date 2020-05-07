@@ -12,10 +12,11 @@ const useStyles = makeStyles(theme => ({
 }))
 
 
-const Home = () => {
+const Home = ({ handleActiveLink }) => {
 
     const [openDialog, setOpenDialog] = useState(false);
     React.useEffect(() => {
+        handleActiveLink(window.location.pathname)
         const h1Ref = document.getElementById('h1Ref')
         const h3Ref = document.getElementById('h3Ref')
         const pRef = document.getElementById('pRef')
@@ -23,7 +24,7 @@ const Home = () => {
         h1Ref.style.transform = 'translateX(0)';
         h3Ref.style.transform = 'translateY(0)';
         pRef.style.transform = 'translateY(0)';
-    }, [])
+    }, [handleActiveLink])
 
     const handleClickOpen = () => {
         setOpenDialog(true);

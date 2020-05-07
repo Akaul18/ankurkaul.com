@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Skills.scss'
-// import Header from '../Header'
 
-function Skills() {
+const Skills = ({ handleActiveLink }) => {
+
+    useEffect(() => {
+        handleActiveLink(window.location.pathname)
+    }, [handleActiveLink])
+
     return (
         <div>
-            {/* <Header /> */}
             <main className="skills__main">
                 <div>
                     <h1>Skills Component</h1>
