@@ -1,49 +1,107 @@
 .skills__main{
     margin:5em 1em 0;
-    display:flex;
-    flex-flow:row nowrap;
-
     .box__parent{
         width:100%;
         box-sizing: border-box;
         padding:1rem 2rem;
         h1{
-            // box-shadow: 0 7px 10px rgba(0,0,0,0.3);
+            text-align:center;
+            margin-bottom:0;
         }
+        // h3{
+        //     margin:0;
+        //     text-align:right;
+        // }
         hr{
-            width:145px;
-            margin:-2rem 0 2rem;
+            // width:145px;
+            margin-top:-0.5rem;
         }
-        .box__parent-skills-heading{
-            width:100%;
-            height:auto;
-            // margin:auto;
-            // text-align:center;
-        }
-        .box__parent-meter{
-            // transition: display 1s ease-in-out;
-            width:130px;
-            height:30px;
-            // margin:auto;
-            margin-top:-0.4rem;
+        // & > div:nth-of-type(1){
+        .box__parent-head{
+            width:80%;
+            margin:1.5rem auto 0;
             display:grid;
-            grid-template-columns: repeat(10, 1fr);
-            column-gap: 1px;
-            div{
-                
-                // &:nth-child(8),&:nth-child(9),&:nth-child(10) {
-                //     background:red;
-                // }
+            grid-template-columns: 1fr 1fr;
+            h2{
+                text-align:center;
+                align-self: center;
+                // text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                //  0px -5px 35px rgba(255,255,255,0.3);
+                text-shadow: 0px 3px 0px #b2a98f,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+                //  transition: all 0.4s 
+                 animation: bounce 2.2s ease 0s 1 normal;
+                 @keyframes bounce {
+                    // 0%   { transform: scale(1,1)    translateY(0); }
+                    // 10%  { transform: scale(1.1,.9) translateY(0); }
+                    // 30%  { transform: scale(.9,1.1) translateY(-70px); }
+                    // 50%  { transform: scale(1,1)    translateY(0); }
+                    // 57%  { transform: scale(1,1)    translateY(-10px); }
+                    // 64%  { transform: scale(1,1)    translateY(0); }
+                    // 100% { transform: scale(1,1)    translateY(0); }
+                    0%   { transform: scale(1,1)      translateY(0); }
+                    10%  { transform: scale(1.1,.9)   translateY(0); }
+                    30%  { transform: scale(.9,1.1)   translateY(-35px); }
+                    50%  { transform: scale(1.05,.95) translateY(0); }
+                    57%  { transform: scale(1,1)      translateY(-7px); }
+                    64%  { transform: scale(1,1)      translateY(0); }
+                    100% { transform: scale(1,1)      translateY(0); }
+                 }
             }
-        }
-        .box__parent-skills{
-            margin:1.1rem 0;
-        //     display:flex;
-        //     flex-flow:row wrap;
-        //     justify-content: space-between;
-        //     .box__parent-skills{
-    
-        //     }
+            .box__parent-skills{
+                width:100%;
+                // background:red;
+                .box__parent-skills-container{
+                    // padding-left:0.6rem;
+                    padding-left:1rem;
+                    width:100%;
+                    // background:green;
+                    .box__parent-skills-heading{
+                        
+                    }
+                    .box__parent-skills-progress-container{
+                        width:100%;
+                        height:26px;
+                        background:#ededed;
+                        .box__parent-skills-progress-bar{
+                            // transition:width 0.7s ease-in-out;
+                            // @keyframes widthInc {
+                            //     from {
+                            //         width:0;
+                            //     }to{
+                            //         width:100%;
+                            //     }
+                            // }
+                            // animation: widthInc 2s ease-in-out 0s 1 normal;
+                            // text-align:right;
+                            // width:0;
+                            // height:100%;
+                            // background:#3f51b5;
+                            // color:#fff;
+                            // border-top-right-radius: 15px;
+                            // border-bottom-right-radius: 15px;
+                            span{
+                                padding-right:0.5rem;
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(even){
+                h2{
+                    grid-column: 2/3;
+                    grid-row: 1/2;
+                }
+                .box__parent-skills-container{
+                    padding-left:0;
+                }
+
+            }
+            &:last-of-type{
+                margin-bottom: 1rem;
+            }
         }
     }
 }

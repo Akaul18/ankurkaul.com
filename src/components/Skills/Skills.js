@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Skills.scss'
 import { getSkills } from '../../services/api'
+import { keyframes } from 'styled-components'
 
 const Skills = ({ handleActiveLink }) => {
 
@@ -14,45 +15,66 @@ const Skills = ({ handleActiveLink }) => {
         getSkills()
             .then(res => {
                 setSkillsType(res.data)
-            }).catch(err => {
-                console.log(err)
+                // console.log(res.data)
             })
     }, [])
 
-    const getProficiency = (proficiency) => {
-        const div = []
-        for (let i = 0; i < proficiency; i++) {
-            div.push(<div key={i} style={{ background: 'green' }}></div>)
+    const getWidth = width => {
+        const widthInc = keyframes`
+            from {
+                width:0;
+            }to{
+                width:${width};
+            }`
+
+        const progress_bar = {
+            animation: `${widthInc} 2s ease-in-out 0s 1 normal`,
+            textAlign: "right",
+            width: 0,
+            height: "100%",
+            background: "#3f51b5",
+            color: "#fff",
+            borderTopRightRadius: "15px",
+            borderBottomRightRadius: "15px"
         }
-        for (let i = 0; i < 10 - proficiency; i++) {
-            div.push(<div key={10 - i} style={{ background: 'red' }}></div>)
-        }
-        return div
+
+        return (
+            <div style={progress_bar} className="box__parent-skills-progress-bar">
+                <span><strong>{width}</strong></span>
+            </div>
+        )
     }
+
 
     return (
         <div>
             <main className="skills__main">
-                {
-                    skillsTypes.map(type =>
-                        <div key={type.id} className="box__parent">
-                            <h1>{type.skill_type}</h1>
-                            <hr />
-                            {/* <div className="box__parent-skills-parent"> */}
-                            {
-                                type.skills.map(skill =>
-                                    <div key={skill.id} className="box__parent-skills">
-                                        <div className="box__parent-skills-heading"><strong>{skill.skill_name}</strong></div>
-                                        <div className="box__parent-meter">
-                                            {getProficiency(skill.skill_proficiency)}
-                                        </div>
-                                    </div>
-                                )
-                            }
-                        </div>
-                        // </div>
-                    )
-                }
+                <div className="box__parent">
+                    <h1>Skills</h1>
+                    <hr width="80px" />
+                    {
+                        skillsTypes.map(types =>
+                            <div key={types.id} className="box__parent-head">
+                                <h2>{types.skill_type}</h2>
+                                <div className="box__parent-skills">
+                                    {
+                                        types.skills.map(skill =>
+                                            <div key={skill.id} className="box__parent-skills-container">
+                                                <div className="box__parent-skills-heading"><strong>{skill.skill_name}</strong></div>
+                                                <div className="box__parent-skills-progress-container">
+                                                    {getWidth(`${skill.skill_proficiency}0%`)}
+                                                    {/* <div className="box__parent-skills-progress-bar" style={{ width: `${skill.skill_proficiency}0%` }}>
+                                                        <span><strong>{`${skill.skill_proficiency}0%`}</strong></span>
+                                                    </div> */}
+                                                </div>
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                            </div>
+                        )
+                    }
+                </div>
             </main>
         </div>
     )

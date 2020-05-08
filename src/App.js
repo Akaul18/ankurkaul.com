@@ -51,12 +51,12 @@ function App() {
           <Route path="/projects" render={() => <Projects handleActiveLink={handleActiveLink} />} />
           <Route path="/blog" render={() => <Blog handleActiveLink={handleActiveLink} />} />
           <Route path="/contact" render={() => <Contact handleActiveLink={handleActiveLink} />} />
-
-          {/* <Route path="/skills" component={Skills} />
-          <Route path="/projects" component={Projects} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/contact" component={Contact} /> */}
         </Switch>
+        {/* <Home handleActiveLink={handleActiveLink} />
+        <Skills handleActiveLink={handleActiveLink} />
+        <Projects handleActiveLink={handleActiveLink} />
+        <Blog handleActiveLink={handleActiveLink} />
+        <Contact handleActiveLink={handleActiveLink} /> */}
       </div>
     </BrowserRouter>
   );
