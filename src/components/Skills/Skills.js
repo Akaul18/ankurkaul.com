@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Skills.scss'
 import { getSkills } from '../../services/api'
-import { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 
 const Skills = ({ handleActiveLink }) => {
 
@@ -21,27 +21,32 @@ const Skills = ({ handleActiveLink }) => {
 
     const getWidth = width => {
         const widthInc = keyframes`
-            from {
+            0% {
                 width:0;
-            }to{
+            }
+
+            100%{
                 width:${width};
             }`
 
-        const progress_bar = {
-            animation: `${widthInc} 2s ease-in-out 0s 1 normal`,
-            textAlign: "right",
-            width: 0,
-            height: "100%",
-            background: "#3f51b5",
-            color: "#fff",
-            borderTopRightRadius: "15px",
-            borderBottomRightRadius: "15px"
-        }
+        const Div = styled.div`
+        text-align: right;
+        width: ${width};
+        height: 100%;
+        background: #3f51b5;
+        color: #fff;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        animation: ${widthInc} 2s ease-in-out 0s 1 normal;
+        `
+        const Span = styled.span`
+            padding-right:0.5rem;
+        `
 
         return (
-            <div style={progress_bar} className="box__parent-skills-progress-bar">
-                <span><strong>{width}</strong></span>
-            </div>
+            <Div id="hey" className="box__parent-skills-progress-bar">
+                <Span><strong>{width}</strong></Span>
+            </Div>
         )
     }
 
@@ -63,6 +68,7 @@ const Skills = ({ handleActiveLink }) => {
                                                 <div className="box__parent-skills-heading"><strong>{skill.skill_name}</strong></div>
                                                 <div className="box__parent-skills-progress-container">
                                                     {getWidth(`${skill.skill_proficiency}0%`)}
+
                                                     {/* <div className="box__parent-skills-progress-bar" style={{ width: `${skill.skill_proficiency}0%` }}>
                                                         <span><strong>{`${skill.skill_proficiency}0%`}</strong></span>
                                                     </div> */}
