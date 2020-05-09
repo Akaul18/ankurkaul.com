@@ -1,5 +1,5 @@
 .skills__main{
-    margin:5em 1em 0;
+    margin:4em 1em 0;
     .box__parent{
         width:100%;
         box-sizing: border-box;
@@ -20,8 +20,11 @@
         .box__parent-head{
             width:80%;
             margin:1.5rem auto 0;
-            display:grid;
-            grid-template-columns: 1fr 1fr;
+            
+            @media screen and(min-width:720px){
+                display:grid;
+                grid-template-columns: 1fr 1fr;
+            }
             h2{
                 text-align:center;
                 align-self: center;
@@ -55,7 +58,9 @@
                 // background:red;
                 .box__parent-skills-container{
                     // padding-left:0.6rem;
-                    padding-left:1rem;
+                    @media screen and(min-width:720px){
+                        padding-left:1rem;
+                    }
                     width:100%;
                     // background:green;
                     .box__parent-skills-heading{
@@ -65,31 +70,9 @@
                         width:100%;
                         height:26px;
                         background:#ededed;
-                        .box__parent-skills-progress-bar{
-                            // transition:width 0.7s ease-in-out;
-                            // @keyframes widthInc {
-                            //     from {
-                            //         width:0;
-                            //     }to{
-                            //         width:100%;
-                            //     }
-                            // }
-                            // animation: widthInc 2s ease-in-out 0s 1 normal;
-                            // text-align:right;
-                            // // width:0;
-                            // width:0;
-                            // height:100%;
-                            // background:#3f51b5;
-                            // color:#fff;
-                            // border-top-right-radius: 15px;
-                            // border-bottom-right-radius: 15px;
-                            span{
-                                padding-right:0.5rem;
-                            }
-                            // &:hover{
-                            //     width:100%;
-                            // }
-                        }
+                        // .box__parent-skills-progress-bar{
+
+                        // }
                     }
                 }
             }

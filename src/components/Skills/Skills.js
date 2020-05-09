@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Skills.scss'
 import { getSkills } from '../../services/api'
-import styled, { keyframes, css } from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const Skills = ({ handleActiveLink }) => {
 
@@ -68,10 +68,6 @@ const Skills = ({ handleActiveLink }) => {
                                                 <div className="box__parent-skills-heading"><strong>{skill.skill_name}</strong></div>
                                                 <div className="box__parent-skills-progress-container">
                                                     {getWidth(`${skill.skill_proficiency}0%`)}
-
-                                                    {/* <div className="box__parent-skills-progress-bar" style={{ width: `${skill.skill_proficiency}0%` }}>
-                                                        <span><strong>{`${skill.skill_proficiency}0%`}</strong></span>
-                                                    </div> */}
                                                 </div>
                                             </div>
                                         )
