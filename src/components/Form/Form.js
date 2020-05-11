@@ -24,7 +24,8 @@ const Form = ({ handleChange, submitForm }) => {
             <form>
                 <h1>Get in touch with me</h1>
                 <div>
-                    <TextField inputProps={{ autoFocus: true }} className="contact-details__fields" id="standard-basic" label="Name*" onChange={handleChange('name')} />
+                    {/* <TextField inputProps={{ autoFocus: true }} className="contact-details__fields" id="standard-basic" label="Name*" onChange={handleChange('name')} /> */}
+                    <TextField inputProps={{ autoFocus: false }} className="contact-details__fields" id="standard-basic" label="Name*" onChange={handleChange('name')} />
                     <TextField className="contact-details__fields" id="standard-basic" label="Company" onChange={handleChange('company')} />
                     <TextField className="contact-details__fields" id="standard-basic" label="Email*" onChange={handleChange('email')} />
                     <TextField className="contact-details__fields" id="standard-basic" label="Contact Number" onChange={handleChange('contactNumber')} />

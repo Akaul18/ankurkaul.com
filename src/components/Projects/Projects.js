@@ -17,6 +17,7 @@ const Project = ({ handleActiveLink }) => {
         hrRef.style.transform = 'translateX(0)'
 
     }, [handleActiveLink])
+    // }, [])
 
     useEffect(() => {
         setLoading(true)

@@ -1,6 +1,7 @@
 import React from 'react'
 import './SideDrawer.scss'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import { Link } from 'react-scroll'
 
 const SideDrawer = ({ showDrawer, closeDrawer }) => {
     let drawerClasses = 'side-drawer';
@@ -18,11 +19,16 @@ const SideDrawer = ({ showDrawer, closeDrawer }) => {
             </div>
             {/* <hr width="80%" /> */}
             <ul>
-                <li onClick={closeDrawer}><Link to="/"><strong>HOME</strong></Link></li>
+                {/* <li onClick={closeDrawer}><Link to="/"><strong>HOME</strong></Link></li>
                 <li onClick={closeDrawer}><Link to="/skills"><strong>SKILLS</strong></Link></li>
                 <li onClick={closeDrawer}><Link to="/projects"><strong>PROJECTS</strong></Link></li>
                 <li onClick={closeDrawer}><Link to="/blog"><strong>BLOG</strong></Link></li>
-                <li onClick={closeDrawer}><Link to="/contact"><strong>CONTACT</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="/contact"><strong>CONTACT</strong></Link></li> */}
+                <li onClick={closeDrawer}><Link to="Home"><strong>HOME</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="Skills"><strong>SKILLS</strong></Link></li>
+                <li onClick={closeDrawer}><Link to="Projects"><strong>PROJECTS</strong></Link></li>
+                {/* <li onClick={closeDrawer}><Link to="/blog"><strong>BLOG</strong></Link></li> */}
+                <li onClick={closeDrawer}><Link to="Contact"><strong>CONTACT</strong></Link></li>
             </ul>
         </nav>
     );
