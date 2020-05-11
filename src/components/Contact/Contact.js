@@ -9,11 +9,12 @@ import validator from 'email-validator'
 import Thankyou from '../Thankyou';
 import Form from '../Form';
 
-const Contact = ({ handleActiveLink }) => {
+// const Contact = ({ handleActiveLink }) => {
+const Contact = () => {
 
-    useEffect(() => {
-        handleActiveLink(window.location.pathname)
-    }, [handleActiveLink])
+    // useEffect(() => {
+    // handleActiveLink(window.location.pathname)
+    // }, [handleActiveLink])
 
     const [isLoading, setIsLoading] = useState(false)
     const [showThankyou, setShowThankyou] = useState(false)

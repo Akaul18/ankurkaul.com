@@ -5,19 +5,20 @@ import { getProjects } from '../../services/api'
 import BarLoader from 'react-spinners/BarLoader'
 import ProjectHeadings from './ProjectHeading/ProjectHeadings';
 
-const Project = ({ handleActiveLink }) => {
+// const Project = ({ handleActiveLink }) => {
+const Project = () => {
 
     const [loading, setLoading] = useState(true)
     const [projects, setProjects] = useState([])
     const [handleProjectChange, setHandleProjectChange] = useState('all')
 
     useEffect(() => {
-        handleActiveLink(window.location.pathname)
+        // handleActiveLink(window.location.pathname)
         const hrRef = document.getElementById('hrRef')
         hrRef.style.transform = 'translateX(0)'
 
-    }, [handleActiveLink])
-    // }, [])
+        // }, [handleActiveLink])
+    }, [])
 
     useEffect(() => {
         setLoading(true)

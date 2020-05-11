@@ -14,7 +14,7 @@ import Backdrop from './components/Backdrop';
 function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [crossPressed, setCrossPressed] = useState(false);
-  const [currentURLPath, setCurrentURLPath] = useState('')
+  // const [currentURLPath, setCurrentURLPath] = useState('')
 
   const drawerToggleHandler = () => {
     setDrawerOpen(prev => !prev)
@@ -31,9 +31,9 @@ function App() {
     setCrossPressed(true)
   }
 
-  const handleActiveLink = path => {
-    setCurrentURLPath(path)
-  }
+  // const handleActiveLink = path => {
+  //   setCurrentURLPath(path)
+  // }
 
   let backdrop
   if (drawerOpen && crossPressed) {
@@ -43,7 +43,8 @@ function App() {
   return (
     // <BrowserRouter>
     <div style={{ height: "100%" }}>
-      <Header drawerToggleHandler={drawerToggleHandler} currentURLPath={currentURLPath} />
+      {/* <Header drawerToggleHandler={drawerToggleHandler} currentURLPath={currentURLPath} /> */}
+      <Header drawerToggleHandler={drawerToggleHandler} />
       <SideDrawer showDrawer={drawerOpen} closeDrawer={crossButtonHandler} />
       {backdrop}
       {/* <Switch>
@@ -54,17 +55,21 @@ function App() {
           <Route path="/contact" render={() => <Contact handleActiveLink={handleActiveLink} />} />
         </Switch> */}
       <Element id="Home">
-        <Home handleActiveLink={handleActiveLink} />
+        {/* <Home handleActiveLink={handleActiveLink} /> */}
+        <Home />
       </Element>
       <Element id="Skills">
-        <Skills handleActiveLink={handleActiveLink} />
+        {/* <Skills handleActiveLink={handleActiveLink} /> */}
+        <Skills />
       </Element>
       <Element id="Projects">
-        <Projects handleActiveLink={handleActiveLink} />
+        {/* <Projects handleActiveLink={handleActiveLink} /> */}
+        <Projects />
       </Element>
       {/* <Blog handleActiveLink={handleActiveLink} /> */}
       <Element id="Contact">
-        <Contact handleActiveLink={handleActiveLink} />
+        {/* <Contact handleActiveLink={handleActiveLink} /> */}
+        <Contact />
       </Element>
     </div>
     // </BrowserRouter>

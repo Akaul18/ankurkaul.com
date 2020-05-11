@@ -3,15 +3,16 @@ import './Skills.scss'
 import { getSkills } from '../../services/api'
 import styled, { keyframes } from 'styled-components'
 
-const Skills = ({ handleActiveLink }) => {
+// const Skills = ({ handleActiveLink }) => {
+const Skills = () => {
 
     const [skillsTypes, setSkillsType] = useState([])
     const [loadAnimation, setLoadAnimation] = useState(false)
 
-    useEffect(() => {
-        handleActiveLink(window.location.pathname)
+    // useEffect(() => {
+    //     handleActiveLink(window.location.pathname)
 
-    }, [handleActiveLink])
+    // }, [handleActiveLink])
 
     useEffect(() => {
         getSkills()
@@ -114,4 +115,4 @@ const Skills = ({ handleActiveLink }) => {
     )
 }
 
-export default Skills
+export default React.memo(Skills)
