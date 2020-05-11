@@ -19,6 +19,7 @@ const Skills = ({ handleActiveLink }) => {
             })
     }, [])
 
+    let count = 1.3;
     const getWidth = width => {
         const widthInc = keyframes`
             0% {
@@ -37,7 +38,7 @@ const Skills = ({ handleActiveLink }) => {
         color: #fff;
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
-        animation: ${widthInc} 2s ease-in-out 0s 1 normal;
+        animation: ${widthInc} ${count += 0.1}s ease-in-out 0s 1 normal;
         `
         const Span = styled.span`
             padding-right:0.5rem;
