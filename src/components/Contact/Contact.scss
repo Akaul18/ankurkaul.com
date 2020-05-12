@@ -1,15 +1,18 @@
 .contact__main{
-    margin:5em 1em 0;
+    margin:0 1em 2.5em;
     display:grid;
     grid-template-rows: 1fr 0.7fr;
     .my-contact-card{
         grid-row:2/3;
-        margin:3rem auto 1.1rem;
+        // margin:3rem auto 1.5rem;
+        margin:3rem auto 0;
+        // width:95%;
         width:95%;
         box-shadow:0 7px 11px rgba(0,0,0,.3);
         display:grid;
         grid-template-columns: 0.15fr 0.85fr;
         transition:0.3s ease-in-out;
+        background:#fff;
         .clipart{
             background:#3f51b5;
             // clip-path: polygon(41% 0, 8% 43%, 0 29%, 41% 100%, 0 100%, 0 33%, 0 0);
@@ -67,7 +70,8 @@
         }
 
         @media screen and (min-width:720px){
-            margin:3rem auto 1rem;
+            // margin:3rem auto 1rem;
+            margin:3rem auto 2rem;
             grid-template-columns: 0.3fr 0.7fr;
             &:hover{
                 transform:scale(1.2);
@@ -115,5 +119,8 @@
             width:70%;
             margin:auto;
         }
+    }
+    @media screen and (min-width:720px){
+        margin:5em 1em 0;
     }
 }

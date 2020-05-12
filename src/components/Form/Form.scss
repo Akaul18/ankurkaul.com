@@ -2,6 +2,11 @@ div.contact-details{
     width:100%;
     height:auto;
     text-align:center;
+    form{
+        h1{
+            margin:0 auto;
+        }
+    }
     .contact-details__fields{
         box-shadow: initial;
         width:45%;

@@ -1,7 +1,6 @@
 .home__main{
-    height:100vh;
-    // margin-top:2rem;
-
+    // height:100vh;
+    // padding:5rem auto 0;
     .home__main-clipart{
         @media screen and (min-width:720px){
             // position:absolute;
@@ -22,7 +21,6 @@
         justify-content: center;
         align-items:center;
         z-index:1000;
-        // padding-top:5rem;
         .self-intro{
             margin-top:5rem;
             height:auto;
@@ -145,6 +143,7 @@
         }
         @media screen and (min-width:720px){
             height:100%;
+            padding-top:5rem;
         }
         // @media screen and(min-width:820px){
         
