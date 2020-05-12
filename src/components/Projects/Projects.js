@@ -3,7 +3,7 @@ import './Projects.scss'
 import ProjectCards from './ProjectCard/ProjectCards'
 import { getProjects } from '../../services/api'
 import BarLoader from 'react-spinners/BarLoader'
-import ProjectHeadings from './ProjectHeading/ProjectHeadings';
+import ProjectHeadings from './ProjectHeading/ProjectHeadings'
 
 // const Project = ({ handleActiveLink }) => {
 const Project = () => {

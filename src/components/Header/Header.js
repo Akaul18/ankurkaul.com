@@ -35,13 +35,13 @@ const Header = ({ drawerToggleHandler }) => {
     )
 }
 
-const styles = {
-    active: {
-        color: '#f50057'
-    },
-    notActive: {
-        color: '#fff'
-    }
-}
+// const styles = {
+//     active: {
+//         color: '#f50057'
+//     },
+//     notActive: {
+//         color: '#fff'
+//     }
+// }
 
 export default Header
