@@ -5,6 +5,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import HireMe from '../HireMe'
 // import { Link } from 'react-router-dom'
 import { Link } from 'react-scroll'
+import LightSpeed from 'react-reveal/LightSpeed'
+import Fade from 'react-reveal/Fade'
+import Zoom from 'react-reveal/Zoom'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -19,13 +22,13 @@ const Home = () => {
     const [openDialog, setOpenDialog] = useState(false);
     React.useEffect(() => {
         // handleActiveLink(window.location.pathname)
-        const h1Ref = document.getElementById('h1Ref')
-        const h3Ref = document.getElementById('h3Ref')
-        const pRef = document.getElementById('pRef')
+        // const h1Ref = document.getElementById('h1Ref')
+        // const h3Ref = document.getElementById('h3Ref')
+        // const pRef = document.getElementById('pRef')
 
-        h1Ref.style.transform = 'translateX(0)';
-        h3Ref.style.transform = 'translateY(0)';
-        pRef.style.transform = 'translateY(0)';
+        // h1Ref.style.transform = 'translateX(0)';
+        // h3Ref.style.transform = 'translateY(0)';
+        // pRef.style.transform = 'translateY(0)';
         // }, [handleActiveLink])
     }, [])
 
@@ -46,15 +49,23 @@ const Home = () => {
                 <div className="self-intro__container">
                     <div className="self-intro">
                         <div>
-                            <h1 id="h1Ref">Hey, I am Ankur Kaul</h1>
-                            <h3 id="h3Ref">A Full stack developer <span><em>by choice </em> </span></h3>
+                            <LightSpeed left>
+                                <h1 id="h1Ref">Hey, I am Ankur Kaul</h1>
+                            </LightSpeed>
+                            <Fade top>
+                                <h3 id="h3Ref">A Full stack developer <span><em>by choice </em> </span></h3>
+                            </Fade>
                         </div>
                         <div className="self-intro__image">
-                            <img
-                                src={`/assets/images/banner-img.jpg`}
-                                alt="banner" />
+                            <Zoom>
+                                <img
+                                    src={`/assets/images/banner-img.jpg`}
+                                    alt="banner" />
+                            </Zoom>
                         </div>
+                        {/* <Slide bottom> */}
                         <p id="pRef">I strongly <em>believe</em> we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
+                        {/* </Slide> */}
                         <div>
                             <Button id="btn1" className={classes.margin} variant="outlined" size="medium" color="primary">
                                 {/* <strong><Link to="/contact">Need a website?</Link></strong> */}

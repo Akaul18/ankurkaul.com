@@ -83,6 +83,16 @@
                 }
             }
         }
+        #detail-holder-1{
+            @media screen and (min-width:720px) and (max-width:736px){
+                height:188.812px;
+            }
+            .proj-details__call-to-action{
+                @media screen and (min-width:720px) and (max-width:736px){
+                    margin-top:2rem;
+                }
+            }
+        }
         .project-cards__image-holder{
             img{
                 object-fit: cover;

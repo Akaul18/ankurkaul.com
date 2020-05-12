@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './ProjectCards.scss'
 import Button from '@material-ui/core/Button'
-import Zoom from 'react-reveal/Zoom';
+import Bounce from 'react-reveal/Bounce';
 
 const ProjectCards = ({ projects, type }) => {
 
@@ -16,7 +16,7 @@ const ProjectCards = ({ projects, type }) => {
     return (
         <div className="project-cards">
             {filterProjects.map(project =>
-                <Zoom>
+                <Bounce>
                     <div id={`holder-${project.id}`} key={project.id} className="project-cards__holder">
                         <div className="project-cards__image-holder">
                             <img
@@ -24,7 +24,7 @@ const ProjectCards = ({ projects, type }) => {
                                 alt={`${project.imgTitleDesktop} logo`}
                             />
                         </div>
-                        <div className="project-cards__proj-details">
+                        <div id={`detail-holder-${project.id}`} className="project-cards__proj-details">
                             <div className="proj-details__title">{project.title}</div>
                             <div className="proj-details__desc">{project.shortDesc}</div>
                             <div className="proj-details__call-to-action">
@@ -46,7 +46,7 @@ const ProjectCards = ({ projects, type }) => {
                             </div>
                         </div>
                     </div>
-                </Zoom>
+                </Bounce>
             )
             }
         </div>
