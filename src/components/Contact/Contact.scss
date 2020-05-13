@@ -59,6 +59,10 @@
             }
         }
 
+        @media screen and (min-width:360px){
+            grid-template-columns: 0.13fr 0.87fr;
+        }
+
         @media screen and (min-width:400px){
             grid-template-columns: 0.2fr 0.8fr;
         }
