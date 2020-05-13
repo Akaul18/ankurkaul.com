@@ -8,6 +8,7 @@ import { Link } from 'react-scroll'
 import LightSpeed from 'react-reveal/LightSpeed'
 import Fade from 'react-reveal/Fade'
 import Zoom from 'react-reveal/Zoom'
+import LazyLoad from 'react-lazy-load'
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -57,11 +58,13 @@ const Home = () => {
                             </Fade>
                         </div>
                         <div className="self-intro__image">
-                            <Zoom>
-                                <img
-                                    src={`/assets/images/banner-img.jpg`}
-                                    alt="banner" />
-                            </Zoom>
+                            <LazyLoad>
+                                <Zoom>
+                                    <img
+                                        src={`/assets/images/banner-img.jpg`}
+                                        alt="banner" />
+                                </Zoom>
+                            </LazyLoad>
                         </div>
                         {/* <Slide bottom> */}
                         <p id="pRef">I strongly <em>believe</em> we can build our future as we want it to be. So, other than my interest in learning new Technologies and building Web based applications for almost 2 years now, I also like to keep working on myself to be a more <em>positive</em> and <em>self motivated person</em>.</p>
